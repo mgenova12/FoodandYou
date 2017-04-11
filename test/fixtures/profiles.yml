@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  height: 1
+  weight: 1
+  age: 1
+  geneder: 1
+  activity_level: 1
+  BMI: 1
+  avg_calories: 1
+  avg_protein: 1
+  avg_totalfat: 1
+  avg_sugar: 1
+  avg_sodium: 1
+  avg_choleserol: 1
+
+two:
+  user_id: 1
+  height: 1
+  weight: 1
+  age: 1
+  geneder: 1
+  activity_level: 1
+  BMI: 1
+  avg_calories: 1
+  avg_protein: 1
+  avg_totalfat: 1
+  avg_sugar: 1
+  avg_sodium: 1
+  avg_choleserol: 1

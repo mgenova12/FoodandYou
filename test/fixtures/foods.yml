@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quanity: 1
+  calories: 1
+  protein: 1
+  totalfat: 1
+  sugar: 1
+  sodium: 1
+  cholesterol: 1
+
+two:
+  name: MyString
+  quanity: 1
+  calories: 1
+  protein: 1
+  totalfat: 1
+  sugar: 1
+  sodium: 1
+  cholesterol: 1
