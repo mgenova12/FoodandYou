@@ -2,41 +2,4 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-}
 
-body {
-  background-color: #1c1207; 
-  color:#fff;
-}
-
-.container {
-  max-width: 940px;
-}
-
-/* Main */
-.main {
-  margin: 80px 27%;
-}
-
-.main h1 {
-  font-size: 30px;
-  margin: 0 0 20px 0;
-}
-
-/* Form */
-form input.form-control { 
-  border:0px;
-  border-radius:0px; 
-}
-
-.main .btn { 
-  margin-top:30px; 
-  color:#fff;
-  background:rgba(0,240,190,0.25);
-  border:0px;
-  border-radius:0px; 
-}
