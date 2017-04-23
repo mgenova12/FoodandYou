@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="/dashboard">Dashboard</a></li>
-          <li><a href="#">Profile</a></li>
+          <li><a href="/profile">Profile</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -35,19 +35,18 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <% end %>
+<% end %>
     
     <% flash.each do |name,message| %>
         <div class="alert alert-<%= name %>" role="alert">
             <%= message %>
         </div>
-
-<% end %>
+    <% end %>
 
   <body>
-  <div class="container-fluid">
-    <%= yield %>
-  </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 
 </html>

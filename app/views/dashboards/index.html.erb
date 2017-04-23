@@ -1,5 +1,6 @@
 <h1>Search Food</h1>
 
+
 <div class="search">
   <div align="center" class="buttonHolder">
     <%= form_tag "/dashboard", method: :get do %>
@@ -8,53 +9,77 @@
       <% end %>
   </div>
 
-
   <% @food.each do |food| %>
-
-  <div class="row">
-    <div class="col-md-2">
-      <h4>Calories</h4>
-      <div class="well"><p><%= food.calories %></p></div>
+    
+    <div align="center">
+      <div id="element1">
+        <h4>Food Name: <%= food.name %></h4> 
+      </div>
+      <div id="element1">|</div>
+      <div id="element2">
+        <h4>Serving Size: <%= food.serving_size %> <%= food.unit %></h4>
+      </div>
+      <div id="element1">|</div>
+      <div id="element2">
+        <h4>Quantity: </h4>
+      </div>
+      <div id="element1">
+        <select class="form-control quant" id="quantity" onchange="changeFunc();">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        </div>
     </div>
 
-    <div class="col-md-2">
-      <h4>Protein</h4>
-      <div class="well"><p><%= food.protein %></p></div>
-    </div>
+    <div class="row display">
+      <div class="col-md-2">
+        <h4>Calories</h4>
+        <div class="well"><p id="calories" value="<%= food.calories %>"><%= food.calories %></p></div>
+      </div>
 
-    <div class="col-md-2">
-      <h4>Sugar</h4>
-      <div class="well"><p><%= food.sugar %></p></div>
-    </div>
+      <div class="col-md-2">
+        <h4>Protein</h4>
+        <div class="well"><p><%= food.protein %></p></div>
+      </div>
 
-    <div class="col-md-2">
-      <h4>Total Fat</h4>
-      <div class="well"><p><%= food.totalfat %></p></div>
-    </div>
+      <div class="col-md-2">
+        <h4>Sugar</h4>
+        <div class="well"><p><%= food.sugar %></p></div>
+      </div>
 
-    <div class="col-md-2">
-      <h4>Sodium</h4>
-      <div class="well"><p><%= food.sodium %></p></div>
-    </div> 
+      <div class="col-md-2">
+        <h4>Total Fat</h4>
+        <div class="well"><p><%= food.totalfat %></p></div>
+      </div>
 
-     <div class="col-md-2">
-      <h4>Cholesterol</h4>
-      <div class="well">
-        <p>
-          <% if food.cholesterol == nil %>
-            <%= 0 %>
-          <% else %>
-            <%= food.cholesterol %>
-          <% end %>
-        </p>
+      <div class="col-md-2">
+        <h4>Sodium</h4>
+        <div class="well"><p><%= food.sodium %></p></div>
+      </div> 
+
+       <div class="col-md-2">
+        <h4>Cholesterol</h4>
+        <div class="well">
+          <p>
+            <% if food.cholesterol == nil %>
+              <%= 0 %>
+            <% else %>
+              <%= food.cholesterol %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    
+      <div align="center">
+        <input class="btn" type="submit" value="Add To Meal" >
       </div>
     </div>
 
-  <h4>Food Name: <%= food.name %></h4>
-  <h4>Serving Size: <%= food.quanity %></h4>
-  <input class="btn" type="submit" value="Add To Meal" >
-
-
-  </div>
   <% end %>
 </div>
+
+
+

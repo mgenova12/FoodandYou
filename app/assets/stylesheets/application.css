@@ -25,19 +25,26 @@ body {
   color:#fff;
 }
 
+.search input[type=text] {
+  width: 750px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 20px 5px 10px;
+  font-size: 16px;
+  color:black;
+}
+
+h1 {
+  text-align:center;
+}
+
 .navbar-custom {
   background-color: black;
   border-color: black;
   font-size: 20px;
   border-bottom-color:red;
 }
-
-/*.navbar-nav>li {
-  border-left-style: solid;
-  border-right-style: solid;
-  border-color: red;
-  border-width: 1px;
-}*/
 
 .navbar-nav>li>a {
   color: #fff !important;
@@ -77,7 +84,6 @@ form input.form-control {
   border:0px;
   border-radius:2px; 
   padding: 9px 15px 9px 15px;
-
 }
 
 .row {
@@ -94,6 +100,26 @@ p {
   padding: 10px 0px 0px 0px;
 }
 
+.form-control {
+  width: 550px;
+}
 
+#element1 {
+  display:inline-block;
+  margin-right:10px;
+} 
 
+#element2 {
+  display:inline-block;
+  margin-right:10px;
+} 
+
+.display {
+  margin-top:15px;
+}
+
+.quant {
+  width: 60px;
+  height: 25px;
+}
 

@@ -51,3 +51,67 @@
 #   )
 # end
 
+(1052..1306).each do |num|
+
+foods = Unirest.get("https://api.nal.usda.gov/ndb/V2/reports?ndbno=0#{num}&type=f&format=json&api_key=").body
+
+@test = foods['foods']
+
+if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "208" || nutrient['nutrient_id'] == 208 } == [] 
+   @calories = 0 
+else 
+   @calories = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "208" || nutrient['nutrient_id'] == 208}[0]['value'] 
+end 
+
+
+ if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "203" || nutrient['nutrient_id'] == 203} == [] 
+   @protein = 0 
+ else 
+   @protein = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "203" || nutrient['nutrient_id'] == 203}[0]['value']  
+ end 
+
+
+if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "204" || nutrient['nutrient_id'] == 204} == [] 
+   @totalfat = 0 
+else 
+   @totalfat = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "204" || nutrient['nutrient_id'] == 204}[0]['value']  
+end 
+
+
+if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "269" || nutrient['nutrient_id'] == 269} == [] 
+   @sugar = 0 
+else 
+   @sugar = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "269" || nutrient['nutrient_id'] == 269}[0]['value']  
+end 
+
+
+if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "307" || nutrient['nutrient_id'] == 307} == [] 
+   @sodium = 0 
+else 
+   @sodium = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "307" || nutrient['nutrient_id'] == 307}[0]['value']  
+end 
+
+
+if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "601" || nutrient['nutrient_id'] == 601} == []  
+   @cholestl = 0 
+else 
+   @cholestl = @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "601" || nutrient['nutrient_id'] == 601}[0]['value'] 
+end 
+
+
+Food.create!(
+    name: @test[0]['food']['desc']['name'],
+    serving_size: @test[0]['food']['nutrients'][0]['measures'][0]['qty'],
+    unit: @test[0]['food']['nutrients'][0]['measures'][0]['label'],
+    calories: @calories,
+    protein: @protein,
+    totalfat: @totalfat,
+    sugar: @sugar,
+    sodium: @sodium,
+    cholesterol: @cholestl
+  )
+
+end
+
+
+
