@@ -51,11 +51,13 @@
 #   )
 # end
 
-(1052..1306).each do |num|
+(1289..1306).each do |num|
 
 foods = Unirest.get("https://api.nal.usda.gov/ndb/V2/reports?ndbno=0#{num}&type=f&format=json&api_key=").body
 
 @test = foods['foods']
+
+next if @test == [{"error"=>"No data for ndbno 0#{num}"}]
 
 if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "208" || nutrient['nutrient_id'] == 208 } == [] 
    @calories = 0 

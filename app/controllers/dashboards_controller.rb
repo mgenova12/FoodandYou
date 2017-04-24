@@ -8,9 +8,7 @@ class DashboardsController < ApplicationController
       @food = []
     end
 
-  @foods = Unirest.get('https://api.nal.usda.gov/ndb/V2/reports?ndbno=01001&type=f&format=json&api_key=').body
-
-  @test = @foods['foods'] 
+    @foods = Food.all
 
   end
 
