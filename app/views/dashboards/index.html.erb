@@ -1,30 +1,29 @@
 <h1>Search Food</h1>
-
+<div id="app">
 
 <div class="search">
   <div align="center" class="buttonHolder">
-    <%= form_tag "/dashboard", method: :get do %>
-      <input type="text" name="search_food" placeholder="Search...">
-      <input class="btn" type="submit" value="Search" >
-      <% end %>
+    <%= form_tag "", method: :get do %>
+      <input v-model="search_food" type="text" name="search_food" placeholder="Search...">
+      <button v-on:click="search($event)" class="btn" type="submit" value="Search" ></button>
+    <% end %>
   </div>
 
-  <% @food.each do |food| %>
-    
+
     <div align="center">
       <div id="element1">
-        <h4>Food Name: <%= food.name %></h4> 
+          <h4>Food Name: {{ food.name }}</h4> 
       </div>
       <div id="element1">|</div>
       <div id="element2">
-        <h4>Serving Size: <%= food.serving_size %> <%= food.unit %></h4>
+          <h4>Serving Size: {{ food.serving_size }} {{ food.unit }}</h4>
       </div>
       <div id="element1">|</div>
       <div id="element2">
         <h4>Quantity: </h4>
       </div>
       <div id="element1">
-        <select class="form-control quant" id="quantity" onchange="changeFunc();">
+        <select class="form-control quant" id="quantity">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -37,39 +36,33 @@
     <div class="row display">
       <div class="col-md-2">
         <h4>Calories</h4>
-        <div class="well"><p id="calories" value="<%= food.calories %>"><%= food.calories %></p></div>
+          <div class="well"><p>{{ food.calories }}</p></div>
       </div>
 
       <div class="col-md-2">
         <h4>Protein (g)</h4>
-        <div class="well"><p><%= food.protein %></p></div>
+          <div class="well"><p>{{ food.protein }}</p></div>
       </div>
 
       <div class="col-md-2">
         <h4>Sugar (g)</h4>
-        <div class="well"><p><%= food.sugar %></p></div>
+          <div class="well"><p>{{ food.sugar }}</p></div>
       </div>
 
       <div class="col-md-2">
         <h4>Total Fat (g)</h4>
-        <div class="well"><p><%= food.totalfat %></p></div>
+          <div class="well"><p>{{ food.totalfat }}</p></div>
       </div>
 
       <div class="col-md-2">
         <h4>Sodium (mg)</h4>
-        <div class="well"><p><%= food.sodium %></p></div>
+          <div class="well"><p>{{ food.sodium }}</p></div>
       </div> 
 
        <div class="col-md-2">
         <h4>Cholesterol (mg)</h4>
         <div class="well">
-          <p>
-            <% if food.cholesterol == nil %>
-              <%= 0 %>
-            <% else %>
-              <%= food.cholesterol %>
-            <% end %>
-          </p>
+          <p>{{ food.cholesterol }}</p>
         </div>
       </div>
     
@@ -78,8 +71,9 @@
       </div>
     </div>
 
-  <% end %>
 </div>
 
+
+</div>
 
 

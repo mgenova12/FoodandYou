@@ -3,12 +3,10 @@ class DashboardsController < ApplicationController
 
   def index
     if params[:search_food]
-      @food = Food.where("name = '#{params[:search_food]}'")
+      @food = Food.find_by("name = '#{params[:search_food]}'")
     else 
-      @food = []
+      @food = Food.new
     end
-
-    @foods = Food.all
 
   end
 

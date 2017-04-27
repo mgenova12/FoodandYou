@@ -51,13 +51,20 @@
 #   )
 # end
 
-(1289..1306).each do |num|
+(13000..13985).each do |num|
 
-foods = Unirest.get("https://api.nal.usda.gov/ndb/V2/reports?ndbno=0#{num}&type=f&format=json&api_key=").body
+foods = Unirest.get("https://api.nal.usda.gov/ndb/V2/reports?ndbno=#{num}&type=f&format=json&api_key=").body
 
 @test = foods['foods']
 
-next if @test == [{"error"=>"No data for ndbno 0#{num}"}]
+next if @test == [{"error"=>"No data for ndbno #{num}"}]
+
+if @test[0]['food']['nutrients'][0]['measures'] == [] || @test[0]['food']['nutrients'][0]['measures'] == [nil]
+  next
+else 
+  @serving_size = @test[0]['food']['nutrients'][0]['measures'][0]['qty']
+end
+
 
 if @test[0]['food']['nutrients'].select{|nutrient| nutrient['nutrient_id'] == "208" || nutrient['nutrient_id'] == 208 } == [] 
    @calories = 0 
@@ -103,7 +110,7 @@ end
 
 Food.create!(
     name: @test[0]['food']['desc']['name'],
-    serving_size: @test[0]['food']['nutrients'][0]['measures'][0]['qty'],
+    serving_size: @serving_size,
     unit: @test[0]['food']['nutrients'][0]['measures'][0]['label'],
     calories: @calories,
     protein: @protein,
