@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   get '/profile' => 'profiles#index'
-  
+  get '/profile/edit' => 'profiles#edit'
+  patch '/profile' => 'profiles#update'
   
   get "/signup" => "users#new"
   post "/users" => "users#create"

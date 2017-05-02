@@ -4,11 +4,14 @@
 <div class="search">
   <div align="center" class="buttonHolder">
     <%= form_tag "", method: :get do %>
-      <input v-model="search_food" type="text" name="search_food" placeholder="Search...">
-      <button v-on:click="search($event)" class="btn" type="submit" value="Search" ></button>
+      <input v-model="foodSearch" type="text" placeholder="Search..." list="names">
+        <Datalist id="names">
+          <option v-for="f in food">{{f.name}}</option>
+        </Datalist>
+
+      <button v-on:click="search($event)" class="btn" type="submit" value="Search" > Search</button>
     <% end %>
   </div>
-
 
     <div align="center">
       <div id="element1">
@@ -71,9 +74,9 @@
       </div>
     </div>
 
+  </div>
 </div>
 
 
-</div>
 
 

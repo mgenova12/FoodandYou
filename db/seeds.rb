@@ -51,7 +51,7 @@
 #   )
 # end
 
-(13000..13985).each do |num|
+(42040..36633).each do |num|
 
 foods = Unirest.get("https://api.nal.usda.gov/ndb/V2/reports?ndbno=#{num}&type=f&format=json&api_key=").body
 
