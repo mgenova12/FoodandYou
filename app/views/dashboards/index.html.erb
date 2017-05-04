@@ -5,9 +5,9 @@
   <div align="center" class="buttonHolder">
     <%= form_tag "", method: :get do %>
       <input v-model="foodSearch" type="text" placeholder="Search..." list="names">
-        <Datalist id="names">
+<!--         <Datalist id="names">
           <option v-for="f in food">{{f.name}}</option>
-        </Datalist>
+        </Datalist> -->
 
       <button v-on:click="search($event)" class="btn" type="submit" value="Search" > Search</button>
     <% end %>
@@ -26,12 +26,12 @@
         <h4>Quantity: </h4>
       </div>
       <div id="element1">
-        <select class="form-control quant" id="quantity">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+        <select v-model="selected" v-on:change="quantity" class="form-control quant" >
+          <option v-bind:value="{ number: 1 }">1</option>
+          <option v-bind:value="{ number: 2 }">2</option>
+          <option v-bind:value="{ number: 3 }">3</option>
+          <option v-bind:value="{ number: 4 }">4</option>
+          <option v-bind:value="{ number: 5 }">5</option>
         </select>
         </div>
     </div>
@@ -39,33 +39,49 @@
     <div class="row display">
       <div class="col-md-2">
         <h4>Calories</h4>
-          <div class="well"><p>{{ food.calories }}</p></div>
+          <div class="well">
+            <p v-if="calTotal > 0">{{ calTotal }}</p>
+            <p v-else> {{food.calories}} </p>
+          </div>
       </div>
 
       <div class="col-md-2">
         <h4>Protein (g)</h4>
-          <div class="well"><p>{{ food.protein }}</p></div>
+          <div class="well">
+            <p v-if="proTotal > 0"> {{ proTotal }} </p>
+            <p v-else>{{ food.protein }}</p>
+          </div>
       </div>
 
       <div class="col-md-2">
         <h4>Sugar (g)</h4>
-          <div class="well"><p>{{ food.sugar }}</p></div>
+          <div class="well">
+          <p v-if="sugarTotal > 0">{{ sugarTotal }}</p>
+          <p v-else>{{ food.sugar }}</p>
+          </div>
       </div>
 
       <div class="col-md-2">
         <h4>Total Fat (g)</h4>
-          <div class="well"><p>{{ food.totalfat }}</p></div>
+          <div class="well">
+          <p v-if="fatTotal > 0"> {{ fatTotal }} </p>
+          <p v-else>{{ food.totalfat }}</p>
+
+          </div>
       </div>
 
       <div class="col-md-2">
         <h4>Sodium (mg)</h4>
-          <div class="well"><p>{{ food.sodium }}</p></div>
+          <div class="well">
+          <p v-if="sodiumTotal > 0">{{ sodiumTotal }}</p>
+          <p v-else>{{ food.sodium }}</p></div>
       </div> 
 
        <div class="col-md-2">
         <h4>Cholesterol (mg)</h4>
         <div class="well">
-          <p>{{ food.cholesterol }}</p>
+          <p v-if="cholesterolTotal > 0"> {{cholesterolTotal}}</p>
+          <p v-else>{{ food.cholesterol }}</p>
         </div>
       </div>
     

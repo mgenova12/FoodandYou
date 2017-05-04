@@ -6,7 +6,7 @@ class Api::V1::DashboardsController < ApplicationController
   end
 
   def search 
-    @food = Food.find_by(id: 200)
+    @food = Food.find_by(name: params[:search])
 
     render 'search.json.jbuilder'
   end
