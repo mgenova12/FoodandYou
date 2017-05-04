@@ -86,9 +86,12 @@
       </div>
     
       <div align="center">
-        <input class="btn" type="submit" value="Add To Meal" >
+        <button v-on:click="addFood()" class="btn">Add food to Meal</button>
+        <button v-on:click="savedMeal()" class="btn">Save Meal</button>
       </div>
     </div>
+
+    <h4 v-for="addedFood in addedFoods"> </h4>
 
   </div>
 </div>

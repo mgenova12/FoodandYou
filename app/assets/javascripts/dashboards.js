@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var app = new Vue({
     el: '#app',
     data: {
-      food: [
-
-      ],
+      food: [],
+      addedFoods: [],
       foodSearch: '',
       selected: '',
       calTotal: 0,
@@ -82,7 +81,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         cholesterolTotal = foodCholesterol * quantity;
         console.log('This is the cholesterolTotal for number selected ' + cholesterolTotal);
         this.cholesterolTotal = cholesterolTotal;
+      },
+      addFood: function() {
+        var parameters = {
+          id: this.food.id,
+          quantity: this.selected.number
+        };
+        $.post('api/v1/dashboard/added_foods', parameters, function(response) {
+          console.log(response);
+          this.addedFoods.push(response);
+        }.bind(this));
+      },
+      savedMeal: function() {
+        console.log('this works!')
       }
+
 
     }
 

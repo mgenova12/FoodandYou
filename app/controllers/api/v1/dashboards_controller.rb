@@ -11,4 +11,17 @@ class Api::V1::DashboardsController < ApplicationController
     render 'search.json.jbuilder'
   end
 
+  def create 
+    @added_food = AddedFood.new(
+      user_id: current_user.id,
+      food_id: params[:id], 
+      status: "added",
+      quantity: params[:quantity]
+    )
+
+    @added_food.save
+
+    render 'added_foods.json.jbuilder'
+  end
+
 end

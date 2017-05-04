@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       get '/dashboard' => 'dashboards#index'
+
+      post '/dashboard/added_foods' => 'dashboards#create'
+
       get '/dashboard/search' => 'dashboards#search'
     end
   end
