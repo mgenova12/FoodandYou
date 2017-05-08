@@ -1,0 +1,2 @@
+module AddedFoodsHelper
+end

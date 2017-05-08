@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       get '/dashboard' => 'dashboards#index'
-
-      post '/dashboard/added_foods' => 'dashboards#create'
-
       get '/dashboard/search' => 'dashboards#search'
+
+
+      get '/dashboard/added_foods' => 'added_foods#index'
+      post '/dashboard/added_foods' => 'added_foods#create'
+      get '/dashboard/added_foods/:id' => 'added_foods#show'
+      delete '/dashboard/added_foods/:id' => 'added_foods#destroy'
+
+      post '/dashboard/meals' => 'meals#create'
     end
   end
 
