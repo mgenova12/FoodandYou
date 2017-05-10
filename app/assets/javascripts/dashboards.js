@@ -80,19 +80,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $.post('api/v1/dashboard/added_foods', parameters, function(response) {
           this.addedFoods.push(response);
         }.bind(this));
-        
         this.foodSearch = '';
-      },
-      savedMeal: function() {
-        console.log('saved meal function works!');
-        $.post('api/v1/dashboard/meals', function(response) {
-          console.log(response);
-          console.log(this.addedFoods);
-        });
       },
       removeFood: function(addedFood) {
         console.log('the removeFood function works');
         console.log(addedFood.id);
+        this.addedFoods.splice(this.addedFoods.indexOf(addedFood), 1);
         $.ajax({
           url: "api/v1/dashboard/added_foods/" + addedFood.id,
           type: 'DELETE',
@@ -101,8 +94,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             console.log(result);
           }
         });
-      }
-   
+      },
+      savedMeal: function() {
+        console.log('saved meal function works!');
+        $.post('api/v1/dashboard/meals', function(response) {
+          console.log(response);
+        });
+      }      
     }
 
 

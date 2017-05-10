@@ -8,15 +8,20 @@ Rails.application.routes.draw do
       get '/dashboard' => 'dashboards#index'
       get '/dashboard/search' => 'dashboards#search'
 
-
       get '/dashboard/added_foods' => 'added_foods#index'
       post '/dashboard/added_foods' => 'added_foods#create'
       get '/dashboard/added_foods/:id' => 'added_foods#show'
       delete '/dashboard/added_foods/:id' => 'added_foods#destroy'
 
+      get '/dashboard/meals' => 'meals#index'
       post '/dashboard/meals' => 'meals#create'
+      
+
+
     end
   end
+
+  get '/my_meals' => 'my_meals#index'
 
   get '/profile' => 'profiles#index'
   get '/profile/edit' => 'profiles#edit'

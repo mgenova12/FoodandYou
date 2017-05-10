@@ -1,4 +1,9 @@
 class Api::V1::MealsController < ApplicationController
+  def index 
+    @meals = Meal.where(user_id: current_user.id)
+    render 'index.json.jbuilder'
+  end
+
 
   def create 
 
