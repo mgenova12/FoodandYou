@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
 body, html {
@@ -98,13 +99,17 @@ form input.form-control {
   padding: 9px 15px 9px 15px;
 }
 
-
 .well {
   padding: 10px 0px 0px 0px;
 }
 
 .form-control {
   width: 550px;
+}
+
+.v-select .selected-tag {
+  background-color: #006400 !important;
+  color:white !important;
 }
 
 #element1 {
