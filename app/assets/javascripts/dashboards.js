@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
-
+  Vue.component('v-select', VueSelect.VueSelect);
   var app = new Vue({
     el: '#app',
     data: {
@@ -12,18 +12,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
       sugarTotal: 0,
       fatTotal: 0,
       sodiumTotal: 0,
-      cholesterolTotal: 0
+      cholesterolTotal: 0,
+      options: [],
     },
     mounted: function() {
       $.get('/api/v1/dashboard', function(response) {
         this.food = response;
       }.bind(this));
 
+      $.get('/api/v1/dashboard/names', function(response) {
+        for (var i = 0; i < response.length; i++) {
+          this.options.push(response[i].name);
+        }
+      }.bind(this));
+
       $.get('api/v1/dashboard/added_foods', function(response) {
         console.log('from addFood get response');
         this.addedFoods = response;
         console.log(this.addedFoods);
-      }.bind(this));      
+      }.bind(this)); 
+
     },
     methods: {
       search: function(event) {
@@ -100,7 +108,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $.post('api/v1/dashboard/meals', function(response) {
           console.log(response);
         });
-      }      
+      },
+
     }
 
 

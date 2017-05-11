@@ -2,18 +2,18 @@
 <div id="app">
 
 <div class="search">
-  <div align="center" class="buttonHolder">
+  <div class="buttonHolder">
     <%= form_tag "", method: :get do %>
-      <input v-model="foodSearch" type="text" placeholder="Search..." list="names">
-<!--         <Datalist id="names">
-          <option v-for="f in food">{{f.name}}</option>
-        </Datalist> -->
-
+      <!-- <input v-model="foodSearch" type="text" placeholder="Search..." list="names"> -->
+      <div align="center" class="select">
+        <v-select v-model="foodSearch" :debounce="250" :options="options" placeholder="Search..."></v-select>
       <button v-on:click="search($event)" class="btn" type="submit" value="Search" > Search</button>
+      </div>
     <% end %>
   </div>
 
-    <div align="center">
+
+    <div class="underSearch" align="center">
       <div id="element1">
           <h4>Food Name: {{ food.name }}</h4> 
       </div>

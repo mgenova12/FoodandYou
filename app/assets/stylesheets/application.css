@@ -25,18 +25,14 @@ body {
   color:#fff;
 }
 
-.search input[type=text] {
-  width: 750px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  padding: 5px 20px 5px 10px;
-  font-size: 16px;
-  color:black;
-}
-
 h1 {
   text-align:center;
+}
+
+p {
+  color: black;
+  text-align: center;
+  font-size: 20px;
 }
 
 .navbar-custom {
@@ -54,6 +50,22 @@ h1 {
   max-width: 940px;
 }
 
+.v-select {
+  background-color: white;
+  width: 750px;
+  border-radius: 5px;
+  display:inline-block;
+  font-size: 15px;
+}
+
+.select .btn {
+  margin-bottom: 26px;
+}
+
+.underSearch {
+  position: relative;
+  bottom: 18px;
+}
 /* Main */
 .main {
   margin: 80px 27%;
@@ -86,15 +98,6 @@ form input.form-control {
   padding: 9px 15px 9px 15px;
 }
 
-.row {
-  margin-top: 30px;
-}
-
-p {
-  color: black;
-  text-align: center;
-  font-size: 20px;
-}
 
 .well {
   padding: 10px 0px 0px 0px;
@@ -114,9 +117,6 @@ p {
   margin-right:10px;
 } 
 
-.display {
-  margin-top:15px;
-}
 
 .quant {
   width: 60px;

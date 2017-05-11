@@ -11,5 +11,9 @@ class Api::V1::DashboardsController < ApplicationController
     render 'search.json.jbuilder'
   end
 
+  def names 
+    @names = Food.all
+    render 'names.json.jbuilder'
+  end
 
 end
