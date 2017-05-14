@@ -17,5 +17,7 @@
 //= require vue-select
 //= require moment 
 //= require fullcalendar
+//= require highcharts
+//= require exporting
 //= require_tree .
 

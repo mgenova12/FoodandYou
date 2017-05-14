@@ -3,7 +3,12 @@ class Api::V1::MealsController < ApplicationController
     @meals = Meal.where(user_id: current_user.id)
     render 'index.json.jbuilder'
   end
+  
+  def show 
+    @meal = Meal.find_by(id: params[:id])
 
+    render 'show.json.jbuilder'
+  end
 
   def create 
 
@@ -31,4 +36,7 @@ class Api::V1::MealsController < ApplicationController
 
     render 'show.json.jbuilder'
   end
+
+
+
 end

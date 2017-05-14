@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     mounted: function() {
       $.get('/api/v1/dashboard', function(response) {
         this.food = response;
-      }.bind(this));
-
-      $.get('/api/v1/dashboard/names', function(response) {
         for (var i = 0; i < response.length; i++) {
           this.options.push(response[i].name);
         }

@@ -1,4 +1,5 @@
 json.array! @meals.each do |meal|
+  json.id meal.id
   json.user_id meal.user_id
   json.total_calories meal.total_calories
   json.total_protein meal.total_protein
@@ -6,5 +7,10 @@ json.array! @meals.each do |meal|
   json.total_sugar meal.total_sugar
   json.total_sodium meal.total_sodium
   json.total_cholesterol meal.total_cholesterol
-  json.created_at meal.created_at
+  
+  json.title 'View Meal'
+  json.url "http://localhost:3000/my_meals/#{meal.id}"
+  
+  json.start meal.created_at
+  json.allDay true
 end

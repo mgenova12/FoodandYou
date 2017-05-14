@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       get '/dashboard' => 'dashboards#index'
-      get '/dashboard/names' => 'dashboards#names'
       get '/dashboard/search' => 'dashboards#search'
 
       get '/dashboard/added_foods' => 'added_foods#index'
@@ -16,13 +15,13 @@ Rails.application.routes.draw do
 
       get '/dashboard/meals' => 'meals#index'
       post '/dashboard/meals' => 'meals#create'
+      get '/dashboard/meals/:id' => 'meals#show'
       
-
-
     end
   end
 
   get '/my_meals' => 'my_meals#index'
+  get '/my_meals/:id' => 'my_meals#show'
 
   get '/profile' => 'profiles#index'
   get '/profile/edit' => 'profiles#edit'

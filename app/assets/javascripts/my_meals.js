@@ -1,18 +1,31 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 
-  var app = new Vue({
+  var app2   = new Vue({
     el: '#app2',
     data: {
-      meals: []
+      meal: [],
     },
     mounted: function() {
-      $.get('/api/v1/dashboard/meals', function(response) {
-        console.log('mounted is woring ');
+   
+      $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        events: '/api/v1/dashboard/meals'
+      }); 
+      
+      var id = window.location.href.split('/').slice(-1)[0];
+      $.get('/api/v1/dashboard/meals/' + id, function(response) {
+        console.log('mounted is working???');
+        console.log(window.location.href );
+        console.log(this.id);
         console.log(response);
-        this.meals = response;
-      }.bind(this));     
+        this.meal = response;
+      }.bind(this)); 
+      
+
     }
 
 
   });
 });
+
+
