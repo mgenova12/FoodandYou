@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       meal: [],
     },
     mounted: function() {
-   
       $('#calendar').fullCalendar({
         // put your options and callbacks here
         events: '/api/v1/dashboard/meals'
