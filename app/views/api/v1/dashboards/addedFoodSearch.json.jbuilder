@@ -6,4 +6,5 @@
   json.sugar @food.sugar
   json.sodium @food.sodium
   json.cholesterol @food.cholesterol
+  json.quantity @quantity
  

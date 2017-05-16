@@ -13,7 +13,7 @@ class Api::V1::DashboardsController < ApplicationController
 
   def addedFoodSearch
     @food = Food.find_by(id: params[:foodId])
-
+    @quantity = params[:quantity]
     render 'addedFoodSearch.json.jbuilder'
   end
 

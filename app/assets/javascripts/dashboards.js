@@ -28,27 +28,46 @@ document.addEventListener("DOMContentLoaded", function(event) {
         this.addedFoods = response;
  
         for (var y = 0; y < this.addedFoods.length; y++) {
-          $.get('/api/v1/dashboard/addedFoodSearch',{foodId: this.addedFoods[y].food_id}, function(response) {
+          $.get('/api/v1/dashboard/addedFoodSearch',{foodId: this.addedFoods[y].food_id, quantity: this.addedFoods[y].quantity}, function(response) {
             console.log('THIS IS THE ADDED FOOD');
             console.log(response);
-            console.log('this is whats in added foods');
+            console.log('this is whats in added foods outside loop');
             console.log(this.addedFoods);
             this.chartFoods.push(response);
             console.log('This is the chart foods array');
             console.log(this.chartFoods);
-            console.log('CHART LENGTH');
-            console.log(this.chartFoods);
 
-            for (var i = 0; i < this.chartFoods.length; i++) {
+            for (var i = 0; i < this.addedFoods.length; i++) {
+              console.log('IN THE LOOP');
+              console.log('ChartFoods array');
+              console.log(this.chartFoods[i]);
+              console.log(this.chartFoods[0].calories);
+              console.log('All added foods in loop');
+              console.log(this.addedFoods);
+              console.log('this is the current added Food');
+              console.log(i);
+              console.log(this.addedFoods[i]);
+              console.log(this.addedFoods[0]);
+              console.log(this.addedFoods[1]);
+              console.log('This is quantity loop');
+              console.log(this.addedFoods[i].quantity);
+
               chart.addSeries({                        
                 name: this.chartFoods[i].name,
-                data:[parseInt(this.chartFoods[i].calories), parseInt(this.chartFoods[i].protein), parseInt(this.chartFoods[i].sodium), parseInt(this.chartFoods[i].sugar), parseInt(this.chartFoods[i].totalfat), parseInt(this.chartFoods[i].cholesterol)]
+                data:[
+                  (parseInt(this.chartFoods[i].calories) * parseInt(this.chartFoods[i].quantity)), 
+                  (parseInt(this.chartFoods[i].protein) * parseInt(this.chartFoods[i].quantity)), 
+                  (parseInt(this.chartFoods[i].sugar) * parseInt(this.chartFoods[i].quantity)), 
+                  (parseInt(this.chartFoods[i].sodium) * parseInt(this.chartFoods[i].quantity)), 
+                  (parseInt(this.chartFoods[i].totalfat) * parseInt(this.chartFoods[i].quantity)), 
+                  (parseInt(this.chartFoods[i].cholesterol) * parseInt(this.chartFoods[i].quantity))
+                ]
               });
               this.chartFoods = [];
             }
-          }.bind(this));        
+          }.bind(this));
         }
-      }.bind(this)); 
+      }.bind(this));
     },
     methods: {
       search: function(event) {
