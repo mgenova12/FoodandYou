@@ -11,4 +11,12 @@ class Api::V1::DashboardsController < ApplicationController
     render 'search.json.jbuilder'
   end
 
+  def addedFoodSearch
+    @food = Food.find_by(id: params[:foodId])
+
+    render 'addedFoodSearch.json.jbuilder'
+  end
+
+
+
 end

@@ -3,9 +3,15 @@
 
 //Food List Styling
 .foodList {
-  // float: right;
+  float: right;
+  margin-right: 130px;
+  margin-top: 20px; 
 }
 
+#container {
+  margin-top: 20px; 
+
+}
 .foodList li {
   margin-bottom: 5px; 
 }

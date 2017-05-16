@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     data: {
       food: [],
       addedFoods: [],
+      chartFoods: [],
       foodSearch: '',
       selected: '',
       calTotal: 0,
@@ -24,9 +25,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }.bind(this));
 
       $.get('api/v1/dashboard/added_foods', function(response) {
-        console.log('from addFood get response');
         this.addedFoods = response;
-        console.log(this.addedFoods);
+ 
+        for (var y = 0; y < this.addedFoods.length; y++) {
+          $.get('/api/v1/dashboard/addedFoodSearch',{foodId: this.addedFoods[y].food_id}, function(response) {
+            console.log('THIS IS THE ADDED FOOD');
+            console.log(response);
+            console.log('this is whats in added foods');
+            console.log(this.addedFoods);
+            this.chartFoods.push(response);
+            console.log('This is the chart foods array');
+            console.log(this.chartFoods);
+            console.log('CHART LENGTH');
+            console.log(this.chartFoods);
+
+            for (var i = 0; i < this.chartFoods.length; i++) {
+              chart.addSeries({                        
+                name: this.chartFoods[i].name,
+                data:[parseInt(this.chartFoods[i].calories), parseInt(this.chartFoods[i].protein), parseInt(this.chartFoods[i].sodium), parseInt(this.chartFoods[i].sugar), parseInt(this.chartFoods[i].totalfat), parseInt(this.chartFoods[i].cholesterol)]
+              });
+              this.chartFoods = [];
+            }
+        
+          }.bind(this));        
+
+        }
+
       }.bind(this)); 
 
     },
@@ -43,37 +67,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var calTotal = 0;
         var foodCalories = this.food.calories;
         calTotal = foodCalories * quantity;
-        console.log('This is the calTotal for number selected ' + calTotal);
         this.calTotal = calTotal;
 
         var proTotal = 0;
         var foodProtein = this.food.protein;
         proTotal = foodProtein * quantity;
-        console.log('This is the proTotal for number selected ' + proTotal);
         this.proTotal = proTotal;
 
         var sugarTotal = 0;
         var foodSugar = this.food.sugar;
         sugarTotal = foodSugar * quantity;
-        console.log('This is the sugarTotal for number selected ' + sugarTotal);
         this.sugarTotal = sugarTotal;
 
         var fatTotal = 0;
         var foodFat = this.food.totalfat;
         fatTotal = foodFat * quantity;
-        console.log('This is the fatTotal for number selected ' + fatTotal);
         this.fatTotal = fatTotal;
 
         var sodiumTotal = 0;
         var foodSodium = this.food.sodium;
         sodiumTotal = foodSodium * quantity;
-        console.log('This is the sodiumTotal for number selected ' + sodiumTotal);
         this.sodiumTotal = sodiumTotal;
 
         var cholesterolTotal = 0;
         var foodCholesterol = this.food.cholesterol;
         cholesterolTotal = foodCholesterol * quantity;
-        console.log('This is the cholesterolTotal for number selected ' + cholesterolTotal);
         this.cholesterolTotal = cholesterolTotal;
       },
       addFood: function() {
@@ -83,9 +101,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
           quantity: this.selected.number
         };
         $.post('api/v1/dashboard/added_foods', parameters, function(response) {
-          this.addedFoods.push(response);
+          this.addedFoods.push(response);    
+
+          chart.addSeries({                        
+            name: response.name,
+            data:[this.calTotal, this.proTotal, this.sugarTotal, this.sodiumTotal, this.fatTotal, this.cholesterolTotal]
+          });        
+        
+           
+
         }.bind(this));
+
+
+
+
+
+
+
         this.foodSearch = '';
+
       },
       removeFood: function(addedFood) {
         console.log('the removeFood function works');
@@ -112,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   });
 
-Highcharts.chart('container', {
+var chart = Highcharts.chart('container', {
   chart: {
     type: 'column'
   },
@@ -127,8 +161,8 @@ Highcharts.chart('container', {
       'Calories',
       'Protein',
       'Sugar',
-      'Total Fat',
       'Sodium',
+      'Total Fat',
       'Cholesterol'
     ],
     crosshair: true
@@ -142,7 +176,7 @@ Highcharts.chart('container', {
   tooltip: {
     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
     footerFormat: '</table>',
     shared: true,
     useHTML: true
@@ -153,23 +187,8 @@ Highcharts.chart('container', {
       borderWidth: 0
     }
   },
-  series: [{
-    name: 'Tokyo',
-    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
-
-  }, {
-    name: 'New York',
-    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5]
-
-  }, {
-    name: 'London',
-    data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3]
-
-  }, {
-    name: 'Berlin',
-    data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5]
-
-  }]
+  series: [
+  ]
 });
 
 

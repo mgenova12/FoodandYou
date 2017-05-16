@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get '/dashboard' => 'dashboards#index'
       get '/dashboard/search' => 'dashboards#search'
 
+      get '/dashboard/addedFoodSearch' => 'dashboards#addedFoodSearch'
+
       get '/dashboard/added_foods' => 'added_foods#index'
       post '/dashboard/added_foods' => 'added_foods#create'
       get '/dashboard/added_foods/:id' => 'added_foods#show'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
       get '/dashboard/meals' => 'meals#index'
       post '/dashboard/meals' => 'meals#create'
       get '/dashboard/meals/:id' => 'meals#show'
+
       
     end
   end
