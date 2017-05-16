@@ -46,13 +46,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
               });
               this.chartFoods = [];
             }
-        
           }.bind(this));        
-
         }
-
       }.bind(this)); 
-
     },
     methods: {
       search: function(event) {
@@ -108,22 +104,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             data:[this.calTotal, this.proTotal, this.sugarTotal, this.sodiumTotal, this.fatTotal, this.cholesterolTotal]
           });        
         
-           
 
         }.bind(this));
-
-
-
-
-
-
-
         this.foodSearch = '';
-
       },
       removeFood: function(addedFood) {
-        console.log('the removeFood function works');
-        console.log(addedFood.id);
+        chart.series[this.addedFoods.indexOf(addedFood)].remove(true);
+ 
         this.addedFoods.splice(this.addedFoods.indexOf(addedFood), 1);
         $.ajax({
           url: "api/v1/dashboard/added_foods/" + addedFood.id,
@@ -133,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             console.log(result);
           }
         });
+
       },
       savedMeal: function() {
         console.log('saved meal function works!');
