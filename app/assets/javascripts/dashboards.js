@@ -29,28 +29,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
  
         for (var y = 0; y < this.addedFoods.length; y++) {
           $.get('/api/v1/dashboard/addedFoodSearch',{foodId: this.addedFoods[y].food_id, quantity: this.addedFoods[y].quantity}, function(response) {
-            console.log('THIS IS THE ADDED FOOD');
-            console.log(response);
-            console.log('this is whats in added foods outside loop');
-            console.log(this.addedFoods);
+
             this.chartFoods.push(response);
-            console.log('This is the chart foods array');
-            console.log(this.chartFoods);
 
             for (var i = 0; i < this.addedFoods.length; i++) {
-              console.log('IN THE LOOP');
-              console.log('ChartFoods array');
-              console.log(this.chartFoods[i]);
-              console.log(this.chartFoods[0].calories);
-              console.log('All added foods in loop');
-              console.log(this.addedFoods);
-              console.log('this is the current added Food');
-              console.log(i);
-              console.log(this.addedFoods[i]);
-              console.log(this.addedFoods[0]);
-              console.log(this.addedFoods[1]);
-              console.log('This is quantity loop');
-              console.log(this.addedFoods[i].quantity);
 
               chart.addSeries({                        
                 name: this.chartFoods[i].name,
@@ -71,10 +53,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     methods: {
       search: function(event) {
+        console.log(event);
         event.preventDefault();
-      $.get('/api/v1/dashboard/search',{search: this.foodSearch}, function(response) {
-        this.food = response;
-      }.bind(this));
+        console.log(this.foodSearch);
+        console.log(this.food);
+        if (this.foodSearch) {
+          document.getElementById("searchError").innerHTML = '';
+          $.get('/api/v1/dashboard/search',{search: this.foodSearch}, function(response) {
+            this.food = response;
+          }.bind(this));
+        } else {
+          document.getElementById("searchError").innerHTML = 'Please enter a valid food!';
+        }
       },
       quantity: function() {
         var quantity = this.selected.number;
@@ -110,21 +100,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
         this.cholesterolTotal = cholesterolTotal;
       },
       addFood: function() {
-        var parameters = {
-          name: this.food.name,
-          id: this.food.id,
-          quantity: this.selected.number
-        };
-        $.post('api/v1/dashboard/added_foods', parameters, function(response) {
-          this.addedFoods.push(response);    
+        if (this.selected && this.foodSearch && (document.getElementById("didCalorieSearch").innerHTML !== '<p>  </p>')) {
+          var parameters = {
+            name: this.food.name,
+            id: this.food.id,
+            quantity: this.selected.number
+          };
+          $.post('api/v1/dashboard/added_foods', parameters, function(response) {
+            this.addedFoods.push(response);    
 
-          chart.addSeries({                        
-            name: response.name,
-            data:[this.calTotal, this.proTotal, this.sugarTotal, this.sodiumTotal, this.fatTotal, this.cholesterolTotal]
-          });        
-        
+            chart.addSeries({                        
+              name: response.name,
+              data:[this.calTotal, this.proTotal, this.sugarTotal, this.sodiumTotal, this.fatTotal, this.cholesterolTotal]
+            });        
+          }.bind(this));
 
-        }.bind(this));
+        } else {
+          document.getElementById("searchError").innerHTML = 'Please search a food or add quantity!';
+        }
+
         this.foodSearch = '';
       },
       removeFood: function(addedFood) {
@@ -142,14 +136,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       },
       savedMeal: function() {
-        console.log('saved meal function works!');
-        $.post('api/v1/dashboard/meals', function(response) {
-          console.log(response);
-        });
+        if (this.addedFoods.length > 0) {
+          $.post('api/v1/dashboard/meals', function(response) {
+            console.log(response);
+          });
+          window.location = "/my_meals";
+        } else {
+          document.getElementById("searchError").innerHTML = 'You must first add a food!';
+
+        }
       },
-
     }
-
 
   });
 

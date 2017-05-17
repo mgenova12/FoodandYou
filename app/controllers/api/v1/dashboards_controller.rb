@@ -1,4 +1,5 @@
 class Api::V1::DashboardsController < ApplicationController
+
   def index
     @foods = Food.all 
 
@@ -16,7 +17,5 @@ class Api::V1::DashboardsController < ApplicationController
     @quantity = params[:quantity]
     render 'addedFoodSearch.json.jbuilder'
   end
-
-
 
 end
