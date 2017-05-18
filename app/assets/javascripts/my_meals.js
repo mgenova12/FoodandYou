@@ -19,10 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(response);
         this.meal = response;
       }.bind(this)); 
-      
-
     }
-
 
   });
 });

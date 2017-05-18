@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507161318) do
+ActiveRecord::Schema.define(version: 20170518124426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170507161318) do
     t.integer  "height"
     t.integer  "weight"
     t.integer  "age"
-    t.integer  "geneder"
+    t.string   "geneder"
     t.integer  "activity_level"
     t.integer  "BMI"
     t.integer  "avg_calories"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170507161318) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.boolean  "profile"
   end
 
 end

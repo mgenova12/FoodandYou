@@ -6,3 +6,4 @@ json.total_totalfat @meal.total_totalfat
 json.total_sugar @meal.total_sugar
 json.total_sodium @meal.total_sodium
 json.total_cholesterol @meal.total_cholesterol
+json.created @meal.created_at

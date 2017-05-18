@@ -19,5 +19,6 @@
 //= require fullcalendar
 //= require highcharts
 //= require exporting
+//= require moment
 //= require_tree .
 

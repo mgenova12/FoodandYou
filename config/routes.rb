@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       post '/dashboard/meals' => 'meals#create'
       get '/dashboard/meals/:id' => 'meals#show'
 
-      
+      get '/profiles' => 'profiles#index'
     end
   end
 
@@ -27,8 +27,10 @@ Rails.application.routes.draw do
   get '/my_meals/:id' => 'my_meals#show'
 
   get '/profile' => 'profiles#index'
+  post '/profile' => 'profiles#create'
   get '/profile/edit' => 'profiles#edit'
   patch '/profile' => 'profiles#update'
+
   
   get "/signup" => "users#new"
   post "/users" => "users#create"

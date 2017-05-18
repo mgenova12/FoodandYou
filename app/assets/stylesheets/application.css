@@ -122,10 +122,17 @@ form input.form-control {
   margin-right:10px;
 } 
 
-
 .quant {
   width: 60px;
   height: 25px;
 }
 
+.about {
+  width: 150px;
+ }
 
+img {
+    margin-top: 40px;
+    border: 2px solid;
+    border-radius: 25px;  
+}

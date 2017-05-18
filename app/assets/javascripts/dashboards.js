@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       cholesterolTotal: 0,
       options: [],
     },
-    mounted: function() {
+    mounted: function() { 
+
       $.get('/api/v1/dashboard', function(response) {
         this.food = response;
         for (var i = 0; i < response.length; i++) {
@@ -53,12 +54,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     methods: {
       search: function(event) {
-        console.log(event);
         event.preventDefault();
-        console.log(this.foodSearch);
-        console.log(this.food);
         if (this.foodSearch) {
-          document.getElementById("searchError").innerHTML = '';
           $.get('/api/v1/dashboard/search',{search: this.foodSearch}, function(response) {
             this.food = response;
           }.bind(this));
@@ -107,11 +104,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
             quantity: this.selected.number
           };
           $.post('api/v1/dashboard/added_foods', parameters, function(response) {
-            this.addedFoods.push(response);    
+            this.addedFoods.push(response);  
 
             chart.addSeries({                        
               name: response.name,
-              data:[this.calTotal, this.proTotal, this.sugarTotal, this.sodiumTotal, this.fatTotal, this.cholesterolTotal]
+              data:[
+                this.calTotal, 
+                this.proTotal,  
+                this.sugarTotal, 
+                this.sodiumTotal, 
+                this.fatTotal, 
+                this.cholesterolTotal
+              ]
             });        
           }.bind(this));
 
@@ -120,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
         this.foodSearch = '';
+        this.selected = '';
       },
       removeFood: function(addedFood) {
         chart.series[this.addedFoods.indexOf(addedFood)].remove(true);
