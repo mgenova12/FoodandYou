@@ -8,7 +8,7 @@
     <div class="col-md-6">
       <div align="center">
         <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
-        <h3> Your BMI is: </h3>
+        <h3> Your BMI is: {{BMI}}</h3>
         <h3> Recommended Daily Calories:  </h3>
       </div>
     </div>
@@ -18,12 +18,14 @@
       <hr>
       <h3 v-if="profiles[0]">Gender: {{profiles[0].gender}} </h3> 
       <h3 v-else> Gender:</h3>
+
       <h3 v-if="profiles[0]">Age: {{profiles[0].age}}</h3>
       <h3 v-else>Age: </h3>
       <h3 v-if="profiles[0]">Weight: {{profiles[0].weight}}</h3>
       <h3 v-else>Weight: </h3>
       <h3 v-if="profiles[0]">Height: {{profiles[0].height}}</h3>
       <h3 v-else>Height: </h3>
+      
       <h3 v-if="profiles[0]">Activity Level: {{profiles[0].activity_level}}</h3>
       <h3 v-else>Activity Level: </h3>
 

@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
       height: params[:height],
       weight: params[:weight],
       age: params[:age],
-      geneder: params[:geneder],
+      geneder: params[:gender],
       activity_level: params[:activity_level]
     )
 

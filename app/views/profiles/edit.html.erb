@@ -21,25 +21,25 @@
     <%= form_tag '/profile', method: :patch do  %>
         <h3>Gender: </h3>
         <select class="form-control about" name="gender">  
-          <option value="66">Male</option>
-          <option value="655">Female</option>
+          <option>Male</option>
+          <option>Female</option>
         </select>
         
         <h3>Age: </h3>
-        <input type='text' class="form-control about" name="age"> 
+        <input type='text' class="form-control about" name="age" value="<%= @profiles %>"> 
 
         <h3>Weight:</h3> 
         <input type='text' class="form-control about" name="weight"> 
 
-      <h3>Height: </h3>
+        <h3>Height: </h3>
         <input type='text' class="form-control about" name="height"> 
       
         <h3>Activity Level:</h3> 
         <select class="form-control about" name="activity_level">  
-          <option value="1.2">No exercise</option>
-          <option value="1.375">1-3 times week</option>
-          <option value="1.55">3-5 times week</option>
-          <option value="1.725">6-7 times week</option>
+          <option>No exercise</option>
+          <option>1-3 times week</option>
+          <option>3-5 times week</option>
+          <option>6-7 times week</option>
         </select>
       
       <h3>EDIT </h3>
@@ -53,8 +53,8 @@
     <%= form_tag '/profile', method: :post do  %>
       <h3>Gender: </h3>
       <select class="form-control about" name="gender">  
-        <option>Male</option>
-        <option>Female</option>
+        <option >Male</option>
+        <option >Female</option>
       </select>
         
       <h3>Age: <input type='text' class="form-control about" name="age"> </h3>
@@ -63,10 +63,10 @@
       
       <h3>Activity Level:</h3> 
       <select class="form-control about" name="activity_level">  
-        <option value="1.2">No exercise</option>
-        <option value="1.375">1-3 times week</option>
-        <option value="1.55">3-5 times week</option>
-        <option value="1.725">6-7 times week</option>
+        <option>No exercise</option>
+        <option>1-3 times week</option>
+        <option>3-5 times week</option>
+        <option>6-7 times week</option>
       </select>
       
       <h3>NEW </h3>
