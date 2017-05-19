@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     mounted: function() {
 
       $.get('api/v1/profiles', function(response) {
-        console.log(response);
         this.profiles = response;
         this.BMI = Math.round((this.profiles[0].weight / (this.profiles[0].height * this.profiles[0].height)) * 703);
 
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else if (this.profiles[0].activity_level === '6-7 times week') {
           this.activityLevelNum = 1.725;
         }
-        console.log(this.activityLevelNum);
 
         this.AvgCalories = Math.round((this.genderNum + (this.genderNum2 * (this.profiles[0].weight / 2.2)) + (this.genderNum3 * (this.profiles[0].height * 2.54)) - (this.genderNum4 * this.profiles[0].age)) * this.activityLevelNum);
 

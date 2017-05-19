@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#app2',
     data: {
       meal: [],
+      mealCreated: ''
     },
     mounted: function() {
       $('#calendar').fullCalendar({
@@ -13,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       
       var id = window.location.href.split('/').slice(-1)[0];
       $.get('/api/v1/dashboard/meals/' + id, function(response) {
-        console.log('mounted is working???');
-        console.log(window.location.href );
-        console.log(this.id);
         console.log(response);
         this.meal = response;
+
+        this.mealCreated = moment(this.meal.created).format('LLLL'); 
+
       }.bind(this)); 
     }
 
