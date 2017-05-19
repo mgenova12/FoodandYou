@@ -21,25 +21,47 @@
     <%= form_tag '/profile', method: :patch do  %>
         <h3>Gender: </h3>
         <select class="form-control about" name="gender">  
-          <option>Male</option>
-          <option>Female</option>
+        <% if @profile.geneder == 'Male'  %>
+            <option selected> <%= @profile.geneder %> </option> 
+            <option>Female</option>
+        <% else %>
+            <option selected> <%= @profile.geneder %> </option> 
+            <option>Male</option>
+        <% end %>
         </select>
         
         <h3>Age: </h3>
-        <input type='text' class="form-control about" name="age" value="<%= @profiles %>"> 
+        <input type='text' class="form-control about" name="age" value="<%= @profile.age %>"> 
 
         <h3>Weight:</h3> 
-        <input type='text' class="form-control about" name="weight"> 
+        <input type='text' class="form-control about" name="weight" value="<%= @profile.weight %>"> 
 
         <h3>Height: </h3>
-        <input type='text' class="form-control about" name="height"> 
+        <input type='text' class="form-control about" name="height" value="<%= @profile.height %>"> 
       
         <h3>Activity Level:</h3> 
-        <select class="form-control about" name="activity_level">  
-          <option>No exercise</option>
-          <option>1-3 times week</option>
-          <option>3-5 times week</option>
-          <option>6-7 times week</option>
+        <select class="form-control about" name="activity_level" value="<%= @profile.activity_level %>">  
+          <% if @profile.activity_level == 'No exercise' %>
+            <option selected> <%= @profile.activity_level %> </option> 
+            <option>1-3 times week</option>
+            <option>3-5 times week</option>
+            <option>6-7 times week</option>
+          <% elsif @profile.activity_level == '1-3 times week'%>
+            <option>No exercise</option>
+            <option selected> <%= @profile.activity_level %> </option> 
+            <option>3-5 times week</option>
+            <option>6-7 times week</option>
+          <% elsif @profile.activity_level == '3-5 times week'%>
+            <option>No exercise</option>
+            <option>1-3 times week</option>
+            <option selected> <%= @profile.activity_level %> </option> 
+            <option>6-7 times week</option>
+          <% elsif @profile.activity_level == '6-7 times week'%>
+            <option>No exercise</option>
+            <option>1-3 times week</option>
+            <option>3-5 times week</option>
+            <option selected> <%= @profile.activity_level %> </option> 
+          <% end %>
         </select>
       
       <h3>EDIT </h3>
