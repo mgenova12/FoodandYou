@@ -33,10 +33,10 @@
         <h3>Age: </h3>
         <input type='text' class="form-control about" name="age" value="<%= @profile.age %>"> 
 
-        <h3>Weight:</h3> 
+        <h3>Weight (lb):</h3> 
         <input type='text' class="form-control about" name="weight" value="<%= @profile.weight %>"> 
 
-        <h3>Height: </h3>
+        <h3>Height (inches): </h3>
         <input type='text' class="form-control about" name="height" value="<%= @profile.height %>"> 
       
         <h3>Activity Level:</h3> 
@@ -64,10 +64,10 @@
           <% end %>
         </select>
       
-      <h3>EDIT </h3>
-      
-      <div class="search">
-        <button class="btn" type='submit'> Save Changes </button>     
+<!--       <h3>EDIT </h3>
+ -->      
+      <div class="prof">
+        <button class="btn" type='submit'> Save Changes </button>
       </div>
     <% end %>
 
@@ -80,8 +80,8 @@
       </select>
         
       <h3>Age: <input type='text' class="form-control about" name="age"> </h3>
-      <h3>Weight: <input type='text' class="form-control about" name="weight"> </h3>
-      <h3>Height: <input type='text' class="form-control about" name="height"> </h3>
+      <h3>Weight (lb): <input type='text' class="form-control about" name="weight"> </h3>
+      <h3>Height (inches): <input type='text' class="form-control about" name="height"> </h3>
       
       <h3>Activity Level:</h3> 
       <select class="form-control about" name="activity_level">  
@@ -91,9 +91,9 @@
         <option>6-7 times week</option>
       </select>
       
-      <h3>NEW </h3>
+      <!-- <h3>NEW </h3> -->
       
-      <div class="search">
+      <div class="prof">
         <button class="btn" type='submit'> Save Changes </button>
       </div>
     <% end %>

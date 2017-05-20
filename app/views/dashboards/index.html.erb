@@ -90,18 +90,22 @@
         </div>
       </div>
 
-    
     <div class="row foodList"> 
-      <div id="chart" class="col-md-8">
-        <div id="container" style="width:850px; height:500px;"> </div>
-      </div>
-      <div class="col-md-4">
+        
+        <div id="chart" class="col-md-9">
+          <div id="container" style="width:650px; height:400px;"> </div>
+        </div>
+
+      <div class="col-md-3">
+        <div class="added well">
         <ul style="list-style: none;">
           <li v-for="addedFood in addedFoods" ><button v-on:click="removeFood(addedFood)" class="btn">X</button> {{ addedFood.quantity }} x {{ addedFood.name }} </li>
         </ul>
+        </div>
       </div>
     </div>
-      
+     
+     
   </div>
 
 </div>

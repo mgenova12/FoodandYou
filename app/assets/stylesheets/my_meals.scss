@@ -2,5 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #calendar .fc-today {
-    background: #808080 !important;
+  background-color: #382d07 !important;
+  border: none !important;
+  border-top: 1px solid #ddd !important;
+  font-weight: bold;
 }
+

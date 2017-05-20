@@ -157,13 +157,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 var chart = Highcharts.chart('container', {
   chart: {
+    borderColor: '#fff',
+    borderWidth: 1,    
+    style: {
+      color: "#fff"
+    },    
+    backgroundColor: {
+      linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+      stops: [
+          [0, 'rgb(56, 45, 7)'],
+          [1, 'rgb(56, 45, 7)']
+      ]
+    },    
     type: 'column'
   },
   title: {
-    text: 'Foods'
+    text: 'Foods',
+    style: {
+      color: "#fff"
+    }    
   },
   subtitle: {
-    text: 'Source: usda.gov'
+    text: 'Source: usda.gov',
+    style: {
+      color: "#fff"
+    }    
   },
   xAxis: {
     categories: [
@@ -174,14 +192,43 @@ var chart = Highcharts.chart('container', {
       'Total Fat',
       'Cholesterol'
     ],
-    crosshair: true
+    crosshair: true,    
+    labels: {
+      style: {
+        color: "#fff"
+      }      
+    }
   },
   yAxis: {
     min: 0,
     title: {
-      text: 'Amount'
+      text: 'Amount',
+      style: {
+        color: "#fff"
+      }
+    },
+    labels: {
+      style: {
+        color: "#fff"
+      }      
+    }    
+  },
+  legend: {
+    itemStyle: {
+      color: '#FFF'
+    },
+    itemHoverStyle: {
+      color: '#CCC'
+    },
+    itemHiddenStyle: {
+      color: '#CCC'
     }
   },
+  labels: {
+    style: {
+      color: '#CCC'
+    }
+  },  
   tooltip: {
     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
@@ -197,7 +244,7 @@ var chart = Highcharts.chart('container', {
     }
   },
   series: [
-  ]
+  ],
 });
 
 

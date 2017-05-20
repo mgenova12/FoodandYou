@@ -9,16 +9,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     mounted: function() {
       $('#calendar').fullCalendar({
         // put your options and callbacks here
-        events: '/api/v1/dashboard/meals'
+        events: '/api/v1/dashboard/meals',
+        eventColor: '#094220'
       }); 
       
       var id = window.location.href.split('/').slice(-1)[0];
       $.get('/api/v1/dashboard/meals/' + id, function(response) {
         console.log(response);
         this.meal = response;
-
         this.mealCreated = moment(this.meal.created).format('LLLL'); 
 
+        
+        
       }.bind(this)); 
     }
 
