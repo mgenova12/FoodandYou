@@ -5,4 +5,6 @@ json.array! @profiles.each do |profile|
   json.age profile.age
   json.gender profile.geneder
   json.activity_level profile.activity_level
+  json.bmi profile.bmi
+  json.AvgCalories profile.AvgCalories
 end
