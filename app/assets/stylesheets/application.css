@@ -22,20 +22,13 @@ body, html {
 }
 
 body.splash {
-  /*background-color: #1c1207; */
   background-image: url('/assets/dark-wood-and-vegetables.jpg');
-
-  /*background-image: url('/assets/dark_mosaic.png');*/
-  /*background-image: url('/assets/cook-366875_1280.jpg');*/
-  /*  background-image: url('http://snowfoxnews.com/wp-content/uploads/2017/01/bigstock-Sushi-Set-On-Dark-Background-98021630.jpg');*/
   background-size: cover;
   background-repeat: no-repeat;
   color:#fff;
-
 }
 
 body {
-  
   background-image: url('/assets/black_thread.png');
   color:#fff;
 }
@@ -108,7 +101,6 @@ form input.form-control {
   border-radius:2px; 
   padding: 9px 15px 9px 15px;
 }
-
 
 .prof .btn { 
   color:#fff;
@@ -208,7 +200,9 @@ img {
 
 .profileInfo {
   width: 400px;
+  margin-left: 50px;
 }
+
 .profileInfo .search{
   padding-left: 20px;
   margin-bottom: 10px;
