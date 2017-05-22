@@ -1,4 +1,8 @@
-<h1><%= current_user.first_name %>'s Profile</h1>
+<div align="center">
+  <h1><%= current_user.first_name %>'s Profile</h1>
+  <hr width="500px" class="style18">
+
+</div>
 
 <div id="app3">
 
@@ -8,35 +12,49 @@
     <div class="col-md-6">
       <div align="center">
         <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
+        <h3> Healthy BMI Range 18.5 - 24.9 </h3>
         <h3> Your BMI is: {{BMI}}</h3>
-        <h3> Recommended Daily Calories: {{AvgCalories}} </h3>
       </div>
     </div>
     
     <div class="col-md-6" >
-      <h2> My Stats </h2>
-      <hr>
-      <h3 v-if="profiles[0]">Gender: {{profiles[0].gender}} </h3> 
-      <h3 v-else> Gender:</h3>
+      <div class="profileInfo well">
+        <h2 align="center"> My Stats </h2>
+        <hr>
+        <h3 v-if="profiles[0]">Gender: {{profiles[0].gender}} </h3> 
+        <h3 v-else> Gender:</h3>
 
-      <h3 v-if="profiles[0]">Age: {{profiles[0].age}}</h3>
-      <h3 v-else>Age: </h3>
-      <h3 v-if="profiles[0]">Weight (lb): {{profiles[0].weight}}</h3>
-      <h3 v-else>Weight (lb): </h3>
-      <h3 v-if="profiles[0]">Height (inches): {{profiles[0].height}}</h3>
-      <h3 v-else>Height (inches): </h3>
-      
-      <h3 v-if="profiles[0]">Activity Level: {{profiles[0].activity_level}}</h3>
-      <h3 v-else>Activity Level: </h3>
-
+        <h3 v-if="profiles[0]">Age: {{profiles[0].age}}</h3>
+        <h3 v-else>Age: </h3>
+        <h3 v-if="profiles[0]">Weight (lb): {{profiles[0].weight}}</h3>
+        <h3 v-else>Weight (lb): </h3>
+        <h3 v-if="profiles[0]">Height (inches): {{profiles[0].height}}</h3>
+        <h3 v-else>Height (inches): </h3>      
+        <h3 v-if="profiles[0]">Activity Level: {{profiles[0].activity_level}}</h3>
+        <h3 v-else>Activity Level: </h3>
   
     <div class="search">
       <button class="btn" onclick="location.href='profile/edit'"> Edit Profile </button>
     </div>
+      
+      </div>
 
     </div>
-
-
+<% if current_user.profile %>
+    <div class="col-md-6" >
+    <div class="well">
+      <h2 align="center"> Recommendations</h2>
+      <hr>
+      <ul class=recommendations>
+        <li> You need {{AvgCalories}} Calories/day to maintain weight</li>
+        <li> You need {{AvgCalories - 500}} Calories/day to lose 1 lb per week</li>
+        <li> You need {{AvgCalories - 1000}} Calories/day to lose 2 lb per week</li>
+        <li> You need {{AvgCalories + 500}} Calories/day to gain 1 lb per week</li>
+        <li> You need {{AvgCalories + 1000}} Calories/day to gain 2 lb per week</li>
+      </ul>
+    </div>
+<% end %>
+</div>
   </div>
 
 </div>

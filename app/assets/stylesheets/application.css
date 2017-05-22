@@ -51,21 +51,14 @@ p {
 }
 
 .navbar-custom {
-  /*background-color: #090a00;*/
   background-image: url('/assets/dark_mosaic.png');
-
   border-color: black;
   font-size: 20px;
-  /*border-bottom-color:rgba(0,240,190,0.25);*/
   border-bottom:#094220 solid 2px;
 }
 
 .navbar-nav>li>a {
   color: #fff !important;
-}
-
-.container {
-  max-width: 940px;
 }
 
 .v-select {
@@ -123,7 +116,8 @@ form input.form-control {
   border:0px;
   border-radius:2px; 
   padding: 9px 15px 9px 15px;
-  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .well {
@@ -135,7 +129,7 @@ form input.form-control {
 }
 
 .v-select .selected-tag {
-  background-color: #006400 !important;
+  background-color: #094220 !important;
   color:white !important;
 }
 
@@ -188,11 +182,12 @@ img {
   left: 30px;
 }
 
-.display .well {
+.well {
   background-color: #382d07;
+  color: white;
 }
 
-.display .well p {
+.display p {
   color: white;
 }
 
@@ -200,3 +195,61 @@ img {
   font-family: cursive;
   font-size: 22px;
 }
+
+.active {
+  display: none;
+}
+
+.recommendations {
+  list-style-type: none;
+  margin-left: 70px;
+  font-size: 18px;
+}
+
+.profileInfo {
+  width: 400px;
+}
+.profileInfo .search{
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.profileInfo h3 {
+  padding-left: 20px;
+}
+
+.editInfo > * {
+  margin-bottom: 30px;
+}
+
+.totals h4{
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.totals {
+  height: 300px;
+}
+
+hr.style18 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #094220; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+  margin-bottom: -10px;
+} 
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #094220; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+
+
+

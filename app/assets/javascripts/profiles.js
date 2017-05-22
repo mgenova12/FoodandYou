@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     mounted: function() {
 
-      $.get('api/v1/profiles', function(response) {
+      $.get('/api/v1/profiles', function(response) {
         this.profiles = response;
         this.BMI = response[0].bmi;
         this.AvgCalories = response[0].AvgCalories;

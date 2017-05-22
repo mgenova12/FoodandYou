@@ -41,15 +41,15 @@
         <div class="col-md-2">
           <h4>Calories</h4>
             <div id="didCalorieSearch" class="well">
-              <p v-if="calTotal > 0">{{ calTotal }}</p>
-              <p v-else> {{food.calories}} </p>
+              <p v-if="calTotal > 0">{{ calTotal.toFixed(2) }}</p>
+              <p v-else> {{food.calories }} </p>
             </div>
         </div>
 
         <div class="col-md-2">
           <h4>Protein (g)</h4>
             <div class="well">
-              <p v-if="proTotal > 0"> {{ proTotal }} </p>
+              <p v-if="proTotal > 0"> {{ proTotal.toFixed(2) }} </p>
               <p v-else>{{ food.protein }}</p>
             </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="col-md-2">
           <h4>Sugar (g)</h4>
             <div class="well">
-            <p v-if="sugarTotal > 0">{{ sugarTotal }}</p>
+            <p v-if="sugarTotal > 0">{{ sugarTotal.toFixed(2) }}</p>
             <p v-else>{{ food.sugar }}</p>
             </div>
         </div>
@@ -65,14 +65,14 @@
         <div class="col-md-2">
           <h4>Sodium (mg)</h4>
             <div class="well">
-            <p v-if="sodiumTotal > 0">{{ sodiumTotal }}</p>
+            <p v-if="sodiumTotal > 0">{{ sodiumTotal.toFixed(2) }}</p>
             <p v-else>{{ food.sodium }}</p></div>
         </div> 
 
         <div class="col-md-2">
           <h4>Total Fat (g)</h4>
             <div class="well">
-            <p v-if="fatTotal > 0"> {{ fatTotal }} </p>
+            <p v-if="fatTotal > 0"> {{ fatTotal.toFixed(2) }} </p>
             <p v-else>{{ food.totalfat }}</p>
             </div>
         </div>
@@ -80,7 +80,7 @@
          <div class="col-md-2">
           <h4>Cholesterol (mg)</h4>
           <div class="well">
-            <p v-if="cholesterolTotal > 0"> {{cholesterolTotal}}</p>
+            <p v-if="cholesterolTotal > 0"> {{cholesterolTotal.toFixed(2)}}</p>
             <p v-else>{{ food.cholesterol }}</p>
           </div>
         </div>
@@ -90,24 +90,29 @@
           <button v-on:click="savedMeal()" class="btn">Save Meal</button>
         </div>
       </div>
-
+    
+    <!-- {{addedFoods.length > 0}} -->
+  <!-- <div v-if="addedFoods.length > 0"> -->
+  <div v-bind:class="{active: hidden}"> 
     <div class="row foodList"> 
         
-        <div id="chart" class="col-md-9">
-          <div id="container" style="width:650px; height:400px;"> </div>
-        </div>
+      <div id="chart" class="col-md-9">
+        <div id="container" style="width:650px; height:400px;"> </div>
+      </div>
 
       <div class="col-md-3">
         <div class="added well">
-        <ul style="list-style: none;">
-          <li v-for="addedFood in addedFoods" ><button v-on:click="removeFood(addedFood)" class="btn">X</button> {{ addedFood.quantity }} x {{ addedFood.name }} </li>
-        </ul>
+          <h4 align="center"> Added Foods </h4>
+          <hr>
+          <ul style="list-style: none;">
+            <li v-for="addedFood in addedFoods" ><button v-on:click="removeFood(addedFood)" class="btn">X</button> {{ addedFood.quantity }} x {{ addedFood.name }} </li>
+          </ul>
         </div>
       </div>
+    
     </div>
-     
-     
-  </div>
+  </div> 
+
 
 </div>
  </body>

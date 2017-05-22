@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#app2',
     data: {
       meal: [],
-      mealCreated: ''
+      mealCreated: '',
+      AvgCalories: 0
     },
     mounted: function() {
       $('#calendar').fullCalendar({
@@ -15,13 +16,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
       
       var id = window.location.href.split('/').slice(-1)[0];
       $.get('/api/v1/dashboard/meals/' + id, function(response) {
-        console.log(response);
         this.meal = response;
         this.mealCreated = moment(this.meal.created).format('LLLL'); 
 
         
-        
-      }.bind(this)); 
+      }.bind(this));
+
+
+      $.get('/api/v1/profiles', function(response) {
+        this.AvgCalories = response[0].AvgCalories;
+
+      
+      }.bind(this));
+
+
     }
 
   });

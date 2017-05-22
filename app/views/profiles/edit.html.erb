@@ -13,84 +13,105 @@
     </div>
   
   <div class="col-md-6" >
-    <h2> My Stats </h2>
+  <div class="profileInfo well">
+    <h2 align="center"> My Stats </h2>
     <hr>
 
   <% if current_user.profile  %>
 
     <%= form_tag '/profile', method: :patch do  %>
-        <h3>Gender: </h3>
-        <select class="form-control about" name="gender">  
-        <% if @profile.geneder == 'Male'  %>
-            <option selected> <%= @profile.geneder %> </option> 
-            <option>Female</option>
-        <% else %>
-            <option selected> <%= @profile.geneder %> </option> 
-            <option>Male</option>
-        <% end %>
-        </select>
-        
-        <h3>Age: </h3>
-        <input type='text' class="form-control about" name="age" value="<%= @profile.age %>"> 
+        <div class="row">
+          <div class="col-md-6 editInfo" >
+            <h3>Gender: </h3>
+            <h3>Age: </h3>
+            <h3>Weight (lb):</h3>
+            <h3>Height (inches): </h3>
+            <h3>Activity Level:</h3> 
+          </div>
 
-        <h3>Weight (lb):</h3> 
-        <input type='text' class="form-control about" name="weight" value="<%= @profile.weight %>"> 
+          <div class="col-md-6 editInfo" >
+            <select class="form-control about" name="gender">  
+            <% if @profile.geneder == 'Male'  %>
+                <option selected> <%= @profile.geneder %> </option> 
+                <option>Female</option>
+            <% else %>
+                <option selected> <%= @profile.geneder %> </option> 
+                <option>Male</option>
+            <% end %>
+            </select>
 
-        <h3>Height (inches): </h3>
-        <input type='text' class="form-control about" name="height" value="<%= @profile.height %>"> 
-      
-        <h3>Activity Level:</h3> 
-        <select class="form-control about" name="activity_level" value="<%= @profile.activity_level %>">  
-          <% if @profile.activity_level == 'No exercise' %>
-            <option selected> <%= @profile.activity_level %> </option> 
-            <option>1-3 times week</option>
-            <option>3-5 times week</option>
-            <option>6-7 times week</option>
-          <% elsif @profile.activity_level == '1-3 times week'%>
-            <option>No exercise</option>
-            <option selected> <%= @profile.activity_level %> </option> 
-            <option>3-5 times week</option>
-            <option>6-7 times week</option>
-          <% elsif @profile.activity_level == '3-5 times week'%>
-            <option>No exercise</option>
-            <option>1-3 times week</option>
-            <option selected> <%= @profile.activity_level %> </option> 
-            <option>6-7 times week</option>
-          <% elsif @profile.activity_level == '6-7 times week'%>
-            <option>No exercise</option>
-            <option>1-3 times week</option>
-            <option>3-5 times week</option>
-            <option selected> <%= @profile.activity_level %> </option> 
-          <% end %>
-        </select>
-      
-<!--       <h3>EDIT </h3>
- -->      
+            <input type='text' class="form-control about" name="age" value="<%= @profile.age %>"> 
+
+            <input type='text' class="form-control about" name="weight" value="<%= @profile.weight %>"> 
+
+            <input type='text' class="form-control about" name="height" value="<%= @profile.height %>"> 
+          
+            
+            <select class="form-control about" name="activity_level" value="<%= @profile.activity_level %>">  
+              <% if @profile.activity_level == 'No exercise' %>
+                <option selected> <%= @profile.activity_level %> </option> 
+                <option>1-3 times week</option>
+                <option>3-5 times week</option>
+                <option>6-7 times week</option>
+              <% elsif @profile.activity_level == '1-3 times week'%>
+                <option>No exercise</option>
+                <option selected> <%= @profile.activity_level %> </option> 
+                <option>3-5 times week</option>
+                <option>6-7 times week</option>
+              <% elsif @profile.activity_level == '3-5 times week'%>
+                <option>No exercise</option>
+                <option>1-3 times week</option>
+                <option selected> <%= @profile.activity_level %> </option> 
+                <option>6-7 times week</option>
+              <% elsif @profile.activity_level == '6-7 times week'%>
+                <option>No exercise</option>
+                <option>1-3 times week</option>
+                <option>3-5 times week</option>
+                <option selected> <%= @profile.activity_level %> </option> 
+              <% end %>
+            </select>
+
+          </div>
+
+        </div>
+<!-- <h3>EDIT </h3>-->      
       <div class="prof">
         <button class="btn" type='submit'> Save Changes </button>
       </div>
     <% end %>
-
+        
+      
     <% else %>
     <%= form_tag '/profile', method: :post do  %>
-      <h3>Gender: </h3>
-      <select class="form-control about" name="gender">  
-        <option >Male</option>
-        <option >Female</option>
-      </select>
+    <div class="row">
+      <div class="col-md-6 editInfo" >
+        <h3>Gender: </h3>
+        <h3>Age: </h3>
+        <h3>Weight (lb):</h3>
+        <h3>Height (inches): </h3>
+        <h3>Activity Level:</h3> 
+      </div>
+
+      <div class="col-md-6 editInfo" >
+        <select class="form-control about" name="gender">  
+          <option >Male</option>
+          <option >Female</option>
+        </select>
+          
+        <input type='text' class="form-control about" name="age"> 
+        <input type='text' class="form-control about" name="weight"> 
+        <input type='text' class="form-control about" name="height"> 
         
-      <h3>Age: <input type='text' class="form-control about" name="age"> </h3>
-      <h3>Weight (lb): <input type='text' class="form-control about" name="weight"> </h3>
-      <h3>Height (inches): <input type='text' class="form-control about" name="height"> </h3>
-      
-      <h3>Activity Level:</h3> 
-      <select class="form-control about" name="activity_level">  
-        <option>No exercise</option>
-        <option>1-3 times week</option>
-        <option>3-5 times week</option>
-        <option>6-7 times week</option>
-      </select>
-      
+        <select class="form-control about" name="activity_level">  
+          <option>No exercise</option>
+          <option>1-3 times week</option>
+          <option>3-5 times week</option>
+          <option>6-7 times week</option>
+        </select>
+
+      </div>
+
+    </div>
       <!-- <h3>NEW </h3> -->
       
       <div class="prof">
@@ -100,6 +121,7 @@
 
   <% end %>
   
+  </div>
   </div>
 
 

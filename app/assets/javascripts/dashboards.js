@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       sodiumTotal: 0,
       cholesterolTotal: 0,
       options: [],
+      hidden: true
     },
     mounted: function() { 
 
@@ -27,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       $.get('api/v1/dashboard/added_foods', function(response) {
         this.addedFoods = response;
+
+        if (this.addedFoods.length > 0) {
+          this.hidden = false;
+        } else {
+          this.hidden = true;
+        }
  
         for (var y = 0; y < this.addedFoods.length; y++) {
           $.get('/api/v1/dashboard/addedFoodSearch',{foodId: this.addedFoods[y].food_id, quantity: this.addedFoods[y].quantity}, function(response) {
@@ -51,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           }.bind(this));
         }
       }.bind(this));
+
     },
     methods: {
       search: function(event) {
@@ -98,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       },
       addFood: function() {
         if (this.selected && this.foodSearch && (document.getElementById("didCalorieSearch").innerHTML !== '<p>  </p>')) {
+
           var parameters = {
             name: this.food.name,
             id: this.food.id,
@@ -116,7 +125,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 this.fatTotal, 
                 this.cholesterolTotal
               ]
-            });        
+            });  
+            console.log(this.hidden);
+            console.log(this.addedFoods.length);
+            if (this.addedFoods.length > 0) {
+              this.hidden = false;
+            } else {
+              this.hidden = true;
+            } 
           }.bind(this));
 
         } else {
@@ -139,6 +155,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
           }
         });
 
+        if (this.addedFoods.length > 0) {
+          this.hidden = false;
+        } else {
+          this.hidden = true;
+        }
       },
       savedMeal: function() {
         if (this.addedFoods.length > 0) {
