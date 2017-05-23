@@ -9,16 +9,15 @@
 
     <div class="col-md-6">
       <div align="center">
-      
-      <% if @photos %>
-        <%= image_tag @photos.image.url, :size => "230x250" %>
-      <% else  %>
-        <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
-        <% end %>
 
+      <% if @last  %>
+        <%= image_tag @last.image.url, :size => "230x250" %>
+      <% else %>
+        <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
+      <% end %>
         <h3> Healthy BMI Range 18.5 - 24.9 </h3>
         <h3> Your BMI is: {{BMI}}</h3>
-        
+
       </div>
     </div>
     
@@ -37,11 +36,16 @@
         <h3 v-if="profiles[0]">Activity Level: {{profiles[0].activity_level}}</h3>
         <h3 v-else>Activity Level: </h3>
   
-        <div class="search">
-          <button class="btn" onclick="location.href='profile/edit'"> Edit Profile </button>
-          <button class="btn" onclick="location.href='photos/new'">Update Photo </button>
-        </div>
-      
+
+        <%= form_for @photo do |f| %>
+          <div class='search' >
+            <%= render 'shared/errors', object: @photo %>
+            <%= f.file_field :image%>
+            <%= f.submit 'Upload', class: 'btn btn-primary' %>
+         </div>
+        <% end %>
+
+
       </div>
     </div>
 

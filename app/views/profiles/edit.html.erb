@@ -6,7 +6,11 @@
 
     <div class="col-md-6">
       <div align="center">
+      <% if @photos %>
+       <%= image_tag @photos.image.url, :size => "230x250" %>
+      <% else %>
         <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
+      <% end %>
         <h3> Your BMI is: </h3>
         <h3> Recommended Daily Calories:  </h3>
       </div>

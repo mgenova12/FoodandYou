@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
+
+    @photos = Photo.where(user_id: current_user.id).order("created_at").last
   end
 
   def create 
@@ -26,6 +28,7 @@ class ProfilesController < ApplicationController
 
   def edit 
     @profile = Profile.find_by(user_id: current_user.id)
+    @photos = Photo.where(user_id: current_user.id).order("created_at").last
     
   end
 

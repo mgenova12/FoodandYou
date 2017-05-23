@@ -126,8 +126,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 this.cholesterolTotal
               ]
             });  
-            console.log(this.hidden);
-            console.log(this.addedFoods.length);
             if (this.addedFoods.length > 0) {
               this.hidden = false;
             } else {
