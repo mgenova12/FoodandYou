@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         this.profiles = response;
         this.BMI = response[0].bmi;
         this.AvgCalories = response[0].AvgCalories;
-
       }.bind(this));
 
     }

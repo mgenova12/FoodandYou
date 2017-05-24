@@ -18,13 +18,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $.get('/api/v1/dashboard/meals/' + id, function(response) {
         this.meal = response;
         this.mealCreated = moment(this.meal.created).format('LLLL'); 
-
       }.bind(this));
-
 
       $.get('/api/v1/profiles', function(response) {
         this.AvgCalories = response[0].AvgCalories;
-
       }.bind(this));
 
 

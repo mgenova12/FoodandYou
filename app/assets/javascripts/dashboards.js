@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       hidden: true
     },
     mounted: function() { 
-
       $.get('/api/v1/dashboard', function(response) {
         this.food = response;
         for (var i = 0; i < response.length; i++) {
@@ -58,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           }.bind(this));
         }
       }.bind(this));
-
     },
     methods: {
       search: function(event) {
@@ -66,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (this.foodSearch) {
           $.get('/api/v1/dashboard/search',{search: this.foodSearch}, function(response) {
             this.food = response;
+            document.getElementById("searchError").innerHTML = '';
           }.bind(this));
+
         } else {
           document.getElementById("searchError").innerHTML = 'Please enter a valid food!';
         }
@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } else {
               this.hidden = true;
             } 
+            document.getElementById("searchError").innerHTML = '';
           }.bind(this));
 
         } else {
