@@ -29,7 +29,8 @@ body.splash {
 }
 
 body {
-  background-image: url('/assets/black_thread.png');
+  /*background-image: url('/assets/black_thread.png');*/
+  background-image: url("black_thread.png");
   color:#fff;
 }
 
