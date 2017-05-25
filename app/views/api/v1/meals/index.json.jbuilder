@@ -9,7 +9,9 @@ json.array! @meals.each do |meal|
   json.total_cholesterol meal.total_cholesterol
   
   json.title 'View Meal'
-  json.url "http://localhost:3000/my_meals/#{meal.id}"
+
+  json.url "https://murmuring-waters-65626.herokuapp.com/my_meals/#{meal.id}"
+  # json.url "http://localhost:3000/my_meals/#{meal.id}"
   
   json.start meal.created_at
   json.allDay true
