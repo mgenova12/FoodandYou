@@ -1,3 +1,14 @@
+User.create!([
+  {first_name: "Bob", last_name: "Jones", email: "bob@gmail.com", password_digest: "$2a$10$f.A1Jmhb5bjgMhVYiu161.1Z47SVcGR5014N78mLi0gDX3RagzFCW", profile: true},
+  {first_name: "Marco", last_name: "Genova", email: "marco@gmail.com", password_digest: "$2a$10$ZzHn1xV/0AbdKU5l/svH4OTMk9NqmfZ9AYxxMV9H5aAijXbeNlO3.", profile: true},
+  {first_name: "Joe", last_name: "John", email: "Joe@mail.com", password_digest: "$2a$10$wYya/UMtokPLQjRaLLxbG.V02ZletZnUgrhwCZ9kZODe8PJsCjJ7e", profile: true},
+  {first_name: "joann", last_name: "Genova", email: "Joann@gmail.com", password_digest: "$2a$10$yDsZAawuAvyEqucGiyhpC.HuA3eBZ3GRgJbZK1Yb7XAWw8EEkeE96", profile: true},
+  {first_name: "john", last_name: "John", email: "John@mail.com", password_digest: "$2a$10$jiV0vCLaA89Y19Ww2MrfGu5BKhN4vlY0FiNA2NmQhY0AVqyg8K6Jm", profile: true},
+  {first_name: "josh", last_name: "springer", email: "josh@test.com", password_digest: "$2a$10$jhfPHuKSMvSvKtuAmJ8pPuCBdbNWWejQQ7ru90A1mtprrMNlprHNq", profile: nil},
+  {first_name: "Janice", last_name: "Wong", email: "janicewong13@gmail.com", password_digest: "$2a$10$nTYEscft3J.A4JjNPhzzdOiSRCAsFjImTUsNOoICjzDibAPzBMfHm", profile: true},
+  {first_name: "Marco", last_name: "Genova", email: "marco@mail.com", password_digest: "$2a$10$J056/D6Fxajg49FkqkmX9OgkmjuJfLJa5TxrE3BNq.QHEot6t3phi", profile: true}
+])
+
 AddedFood.create!([
   {user_id: 4, food_id: 32, meal_id: 87, status: "saved", quantity: 1, name: "Butter, salted"},
   {user_id: 4, food_id: 35, meal_id: 87, status: "saved", quantity: 1, name: "Cheese, blue"},
@@ -7978,13 +7989,4 @@ Photo.create!([
 Profile.create!([
   {user_id: 11, height: 70, weight: 150, age: 24, geneder: "Male", activity_level: "No exercise", BMI: nil, avg_calories: nil, avg_protein: nil, avg_totalfat: nil, avg_sugar: nil, avg_sodium: nil, avg_choleserol: nil, image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil}
 ])
-User.create!([
-  {first_name: "Bob", last_name: "Jones", email: "bob@gmail.com", password_digest: "$2a$10$f.A1Jmhb5bjgMhVYiu161.1Z47SVcGR5014N78mLi0gDX3RagzFCW", profile: true},
-  {first_name: "Marco", last_name: "Genova", email: "marco@gmail.com", password_digest: "$2a$10$ZzHn1xV/0AbdKU5l/svH4OTMk9NqmfZ9AYxxMV9H5aAijXbeNlO3.", profile: true},
-  {first_name: "Joe", last_name: "John", email: "Joe@mail.com", password_digest: "$2a$10$wYya/UMtokPLQjRaLLxbG.V02ZletZnUgrhwCZ9kZODe8PJsCjJ7e", profile: true},
-  {first_name: "joann", last_name: "Genova", email: "Joann@gmail.com", password_digest: "$2a$10$yDsZAawuAvyEqucGiyhpC.HuA3eBZ3GRgJbZK1Yb7XAWw8EEkeE96", profile: true},
-  {first_name: "john", last_name: "John", email: "John@mail.com", password_digest: "$2a$10$jiV0vCLaA89Y19Ww2MrfGu5BKhN4vlY0FiNA2NmQhY0AVqyg8K6Jm", profile: true},
-  {first_name: "josh", last_name: "springer", email: "josh@test.com", password_digest: "$2a$10$jhfPHuKSMvSvKtuAmJ8pPuCBdbNWWejQQ7ru90A1mtprrMNlprHNq", profile: nil},
-  {first_name: "Janice", last_name: "Wong", email: "janicewong13@gmail.com", password_digest: "$2a$10$nTYEscft3J.A4JjNPhzzdOiSRCAsFjImTUsNOoICjzDibAPzBMfHm", profile: true},
-  {first_name: "Marco", last_name: "Genova", email: "marco@mail.com", password_digest: "$2a$10$J056/D6Fxajg49FkqkmX9OgkmjuJfLJa5TxrE3BNq.QHEot6t3phi", profile: true}
-])
+
