@@ -72,11 +72,7 @@ p {
   bottom: 18px;
 }
 /* Main */
-.main {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
+
 
 
 /* Form */
@@ -85,13 +81,6 @@ form input.form-control {
   border-radius:0px; 
 }
 
-/*.main .btn { 
-  margin-top:30px; 
-  color:#fff;
-  background:rgba(0,240,190,0.25);
-  border:0px;
-  border-radius:0px; 
-}*/
 
 .btn { 
   color:#fff;
