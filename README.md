@@ -1,13 +1,13 @@
 # Food & You
-***
+
 Food & You is an app that allows users to track their nutrional intake. It implements USDA's [API] to give accurate nutrional information.
 
 # Motivation
-***
+
 People spend hundreds of dollars on groceries every month, but don’t have a great understanding of how much they’re actually consuming and in what quantities. This app allows users to feed data about their purchases and give them a nutrional break down of what they ate. It also records the foods you eat and gives you recommendations. 
 
 # Tech
-***
+
 Food & You uses a number of open source projects to work properly:
 
 * [Ruby on Rails] - Server-side web application framework written in Ruby
@@ -23,10 +23,10 @@ Food & You uses a number of open source projects to work properly:
 # Screenshots
 ***
 
-
+![alt text](https://cdn.rawgit.com/mgenova12/Nutrition-app/fed55ee9/app/assets/images/Food%26you.jpg)
 
 # Features
-***
+
 * User login/signup
 * Interactive Graph
 * Autocomplete searching
