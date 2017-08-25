@@ -21,7 +21,6 @@ Food & You uses a number of open source projects to work properly:
 * [Full Calendar] - Open source JavaScript jQuery plugin for event calendars
 
 # Screenshots
-***
 
 ![alt text](https://cdn.rawgit.com/mgenova12/Nutrition-app/fed55ee9/app/assets/images/Food%26you.jpg)
 
