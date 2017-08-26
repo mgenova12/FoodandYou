@@ -10,7 +10,7 @@ json.array! @meals.each do |meal|
   
   json.title 'View Meal'
 
-  json.url "https://murmuring-waters-65626.herokuapp.com/my_meals/#{meal.id}"
+  json.url "https://foodandyou.herokuapp.com/my_meals/#{meal.id}"
   # json.url "http://localhost:3000/my_meals/#{meal.id}"
   
   json.start meal.created_at
