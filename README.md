@@ -1,10 +1,10 @@
 # Food & You
 
-Food & You is an app that allows users to track their nutrional intake. It implements USDA's [API] to give accurate nutrional information.
+Food & You is an app that allows users to track their nutritional intake. It implements USDA's [API] to give accurate nutritional information.
 
 # Motivation
 
-People spend hundreds of dollars on groceries every month, but don’t have a great understanding of how much they’re actually consuming and in what quantities. This app allows users to feed data about their purchases and give them a nutrional break down of what they ate. It also records the foods you eat and gives you recommendations. 
+People spend hundreds of dollars on groceries every month, but don’t have a great understanding of how much they’re actually consuming and in what quantities. This app allows users to feed data about their purchases and give them a nutritional break down of what they ate. It also records the foods you eat and gives you recommendations. 
 
 # Tech
 
