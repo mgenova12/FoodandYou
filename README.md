@@ -35,6 +35,72 @@ Food & You uses a number of open source projects to work properly:
 * BMI/Calorie calculator 
 
 
+# Code Example
+
+**Adding a Food**
+```javascript
+     if (this.selected && this.foodSearch) {
+       var parameters = {
+         name: this.food.name,
+         id: this.food.id,
+         quantity: this.selected.number
+       };
+       $.post('api/v1/dashboard/added_foods', parameters, function(response) {
+         this.addedFoods.push(response);  
+
+         chart.addSeries({                        
+           name: response.name,
+           data:[
+             this.calTotal, 
+             this.proTotal,  
+             this.sugarTotal, 
+             this.sodiumTotal, 
+             this.fatTotal, 
+             this.cholesterolTotal
+           ]
+         });  
+         if (this.addedFoods.length > 0) {
+           this.hidden = false;
+         } else {
+           this.hidden = true;
+         } 
+         document.getElementById("searchError").innerHTML = '';
+       }.bind(this));
+
+     } else {
+       document.getElementById("searchError").innerHTML = 'Please search a food or add quantity!';
+     }
+
+     this.foodSearch = '';
+     this.selected = '';
+
+```
+
+**User Sign up**
+```ruby
+  def create
+    user = User.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation]
+    )
+
+    if user.save
+      session[:user_id] = user.id
+      flash[:success] = 'Successfully created account!'
+      redirect_to '/dashboard'
+    else
+      flash[:warning] = 'Invalid email or password!'
+      redirect_to '/signup'
+    end    
+
+  end
+
+```
+
+
 
    [API]: <https://ndb.nal.usda.gov/ndb/doc/>
    [VueJS]: <https://vuejs.org/>
