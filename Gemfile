@@ -28,6 +28,7 @@ gem 'faker'
 gem 'unirest'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rename'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
