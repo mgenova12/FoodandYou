@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: "api/v1/dashboard/added_foods/" + addedFood.id,
           type: 'DELETE',
           success: function(result) {
-          // Do something with the result
             console.log(result);
           }
         });
@@ -163,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       savedMeal: function() {
         if (this.addedFoods.length > 0) {
           $.post('api/v1/dashboard/meals', function(response) {
-            console.log(response);
           });
           window.location = "/my_meals";
         } else {

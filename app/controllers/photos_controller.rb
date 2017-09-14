@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @photos = Photo.order('created_at')
   end
@@ -10,7 +11,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
     if @photo.save

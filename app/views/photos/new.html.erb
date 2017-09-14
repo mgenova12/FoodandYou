@@ -36,34 +36,32 @@
         <h3 v-if="profiles[0]">Activity Level: {{profiles[0].activity_level}}</h3>
         <h3 v-else>Activity Level: </h3>
   
-
         <%= form_for @photo do |f| %>
           <div class='search' >
             <%= render 'shared/errors', object: @photo %>
             <%= f.file_field :image%>
             <%= f.submit 'Upload', class: 'btn btn-primary' %>
-         </div>
+          </div>
         <% end %>
-
 
       </div>
     </div>
 
-<% if current_user.profile %>
-  <div class="col-md-6" >
-    <div class="well">
-      <h2 align="center"> Recommendations</h2>
-      <hr>
-      <ul class=recommendations>
-        <li> You need {{AvgCalories}} Calories/day to maintain weight</li>
-        <li> You need {{AvgCalories - 500}} Calories/day to lose 1 lb per week</li>
-        <li> You need {{AvgCalories - 1000}} Calories/day to lose 2 lb per week</li>
-        <li> You need {{AvgCalories + 500}} Calories/day to gain 1 lb per week</li>
-        <li> You need {{AvgCalories + 1000}} Calories/day to gain 2 lb per week</li>
-      </ul>
-    </div>
-  </div>
-<% end %>
+    <% if current_user.profile %>
+      <div class="col-md-6" >
+        <div class="well">
+          <h2 align="center"> Recommendations</h2>
+          <hr>
+          <ul class=recommendations>
+            <li> You need {{AvgCalories}} Calories/day to maintain weight</li>
+            <li> You need {{AvgCalories - 500}} Calories/day to lose 1 lb per week</li>
+            <li> You need {{AvgCalories - 1000}} Calories/day to lose 2 lb per week</li>
+            <li> You need {{AvgCalories + 500}} Calories/day to gain 1 lb per week</li>
+            <li> You need {{AvgCalories + 1000}} Calories/day to gain 2 lb per week</li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 </div>

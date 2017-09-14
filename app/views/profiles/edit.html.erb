@@ -1,16 +1,14 @@
 <h1><%= current_user.first_name %>'s Profile</h1>
 
-
-
 <div class="row"> 
 
     <div class="col-md-6">
       <div align="center">
-      <% if @photos %>
-       <%= image_tag @photos.image.url, :size => "230x250" %>
-      <% else %>
-        <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
-      <% end %>
+        <% if @photos %>
+         <%= image_tag @photos.image.url, :size => "230x250" %>
+        <% else %>
+          <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
+        <% end %>
         <h3> Your BMI is: </h3>
         <h3> Recommended Daily Calories:  </h3>
       </div>
@@ -21,7 +19,7 @@
       <h2 align="center"> My Stats </h2>
       <hr>
 
-    <% if current_user.profile  %>
+      <% if current_user.profile  %>
 
       <%= form_tag '/profile', method: :patch do  %>
           <div class="row">
@@ -36,11 +34,11 @@
             <div class="col-md-6 editInfo" >
               <select class="form-control about" name="gender">  
               <% if @profile.geneder == 'Male'  %>
-                  <option selected> <%= @profile.geneder %> </option> 
-                  <option>Female</option>
+                <option selected> <%= @profile.geneder %> </option> 
+                <option>Female</option>
               <% else %>
-                  <option selected> <%= @profile.geneder %> </option> 
-                  <option>Male</option>
+                <option selected> <%= @profile.geneder %> </option> 
+                <option>Male</option>
               <% end %>
               </select>
 
@@ -74,48 +72,49 @@
 
             </div>
           </div>
-  <!-- <h3>EDIT </h3>-->      
+
         <div class="prof">
           <button class="btn" type='submit'> Save Changes </button>
         </div>
-    <% end %>
+
+      <% end %>
           
-    <% else %>
+      <% else %>
+
       <%= form_tag '/profile', method: :post do  %>
-      <div class="row">
-        <div class="col-md-6 editInfo" >
-          <h3>Gender: </h3>
-          <h3>Age: </h3>
-          <h3>Weight (lb):</h3>
-          <h3>Height (inches): </h3>
-          <h3>Activity Level:</h3> 
-        </div>
+        <div class="row">
+          <div class="col-md-6 editInfo" >
+            <h3>Gender: </h3>
+            <h3>Age: </h3>
+            <h3>Weight (lb):</h3>
+            <h3>Height (inches): </h3>
+            <h3>Activity Level:</h3> 
+          </div>
 
-        <div class="col-md-6 editInfo" >
-          <select class="form-control about" name="gender">  
-            <option >Male</option>
-            <option >Female</option>
-          </select>
+          <div class="col-md-6 editInfo" >
+            <select class="form-control about" name="gender">  
+              <option >Male</option>
+              <option >Female</option>
+            </select>
+              
+            <input type='text' class="form-control about" name="age"> 
+            <input type='text' class="form-control about" name="weight"> 
+            <input type='text' class="form-control about" name="height"> 
             
-          <input type='text' class="form-control about" name="age"> 
-          <input type='text' class="form-control about" name="weight"> 
-          <input type='text' class="form-control about" name="height"> 
-          
-          <select class="form-control about" name="activity_level">  
-            <option>No exercise</option>
-            <option>1-3 times week</option>
-            <option>3-5 times week</option>
-            <option>6-7 times week</option>
-          </select>
-
+            <select class="form-control about" name="activity_level">  
+              <option>No exercise</option>
+              <option>1-3 times week</option>
+              <option>3-5 times week</option>
+              <option>6-7 times week</option>
+            </select>
+          </div>
         </div>
-      </div>
-        <!-- <h3>NEW </h3> --> 
+
         <div class="prof">
           <button class="btn" type='submit'> Save Changes </button>
         </div>
-    <% end %>
 
+      <% end %>
     <% end %>
     
     </div>

@@ -1,49 +1,42 @@
-  
-
 <div id="app2">
-
-  <h3 align="center">{{ mealCreated }} </h3>
-  <hr width="500px" class="style18">
+    <h3 align="center">{{ mealCreated }} </h3>
+    <hr width="500px" class="style18">
 
   <div class="row">
 
-  <div class="col-md-4">
-  <div class="well foodsTotals">
-    <h3 align="center"> Foods </h3>
-    <hr>
-
-    <ol>
-    <% @saved_foods.each do |saved_food| %>
-      <h4><li><%= saved_food.name %></li></h4>
-    <% end %>
-    </ol>
-  </div>
-  </div>
-
-
-  <div class="col-md-4">
-    <div class="well totals">
-      <h3 align="center">Daily Totals </h3>
+    <div class="col-md-4">
+      <div class="well foodsTotals">
+      <h3 align="center"> Foods </h3>
       <hr>
-      <h4>Total Calories: {{meal.total_calories}}</h4>
-      <h4>Total Protein: {{meal.total_protein}}g</h4>
-      <h4>Total Fat: {{meal.total_totalfat}}g</h4>
-      <h4>Total Sugar: {{meal.total_sugar}}g</h4>
-      <h4>Total Sodium: {{meal.total_sodium}}mg</h4>
-      <h4>Total Cholesterol: {{meal.total_cholesterol}}mg</h4>
+        <ol>
+          <% @saved_foods.each do |saved_food| %>
+            <h4><li><%= saved_food.name %></li></h4>
+          <% end %>
+        </ol>
+      </div>
     </div>
-  </div>
 
-  <div class="col-md-4">
-    <div class="well totals">
-      <h3 align="center">Recommendations</h3>
-      <hr>
-        <h4 v-if="AvgCalories - meal.total_calories > 0"> You need {{AvgCalories - meal.total_calories}} more calories to maintain your current weight</h4>
-        <h4 v-else> You need {{Math.abs(AvgCalories - meal.total_calories)}} less calories to maintain your current weight </h4>
+    <div class="col-md-4">
+      <div class="well totals">
+        <h3 align="center">Daily Totals </h3>
+        <hr>
+        <h4>Total Calories: {{meal.total_calories}}</h4>
+        <h4>Total Protein: {{meal.total_protein}}g</h4>
+        <h4>Total Fat: {{meal.total_totalfat}}g</h4>
+        <h4>Total Sugar: {{meal.total_sugar}}g</h4>
+        <h4>Total Sodium: {{meal.total_sodium}}mg</h4>
+        <h4>Total Cholesterol: {{meal.total_cholesterol}}mg</h4>
+      </div>
     </div>
-  </div>
 
-
+    <div class="col-md-4">
+      <div class="well totals">
+        <h3 align="center">Recommendations</h3>
+        <hr>
+          <h4 v-if="AvgCalories - meal.total_calories > 0"> You need {{AvgCalories - meal.total_calories}} more calories to maintain your current weight</h4>
+          <h4 v-else> You need {{Math.abs(AvgCalories - meal.total_calories)}} less calories to maintain your current weight </h4>
+      </div>
+    </div>
 
   </div>
 

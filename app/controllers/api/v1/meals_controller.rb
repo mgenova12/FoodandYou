@@ -6,12 +6,10 @@ class Api::V1::MealsController < ApplicationController
   
   def show 
     @meal = Meal.find_by(id: params[:id])
-
     render 'show.json.jbuilder'
   end
 
   def create 
-
     @added_foods = AddedFood.where(user_id: current_user.id).where(status: 'added')
 
     @meal = Meal.new(
@@ -36,7 +34,5 @@ class Api::V1::MealsController < ApplicationController
 
     render 'show.json.jbuilder'
   end
-
-
 
 end

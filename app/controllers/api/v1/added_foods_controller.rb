@@ -7,7 +7,6 @@ class Api::V1::AddedFoodsController < ApplicationController
 
   def show 
     @added_food = AddedFood.find_by(id: params[:id])
-
     render 'show.json.jbuilder'
   end
 
@@ -33,6 +32,5 @@ class Api::V1::AddedFoodsController < ApplicationController
       render json: {error: 'Something went wrong'}
     end
   end
-
 
 end

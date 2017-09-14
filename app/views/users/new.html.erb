@@ -2,36 +2,35 @@
   <h2> Food & You</h2>
 </div>
 
-
 <%= form_tag '/users', method: :post do  %>
-            <h1>Sign Up!</h1>
+    <h1>Sign Up!</h1>
     <div class="main" align="center">
       <div class="container">
             
-            <form role="form">
-              <div class="form-group">
-                <label for="first">First name</label>
-                <input type="text" class="form-control" name="first_name">
-              </div>
-              <div class="form-group">
-                <label for="last">Last name</label>
-                <input type="text" class="form-control" name="last_name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email">
-              </div>
-              <div class="form-group">
-                <label for="password" class="password-label">Password</label> 
-                <input type="password" class="form-control" name="password">
-              </div>
-              <div class="form-group">
-                <label for="password" class="password-label">Confirm Password</label> 
-                <input type="password" class="form-control" name="password_confirmation">
-              </div>
-              <button type="submit" class="btn">Create account</button>
-              <a class="btn" href="/login">Log In</a>
-            </form> 
+          <form role="form">
+            <div class="form-group">
+              <label for="first">First name</label>
+              <input type="text" class="form-control" name="first_name">
+            </div>
+            <div class="form-group">
+              <label for="last">Last name</label>
+              <input type="text" class="form-control" name="last_name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+              <label for="password" class="password-label">Password</label> 
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+              <label for="password" class="password-label">Confirm Password</label> 
+              <input type="password" class="form-control" name="password_confirmation">
+            </div>
+            <button type="submit" class="btn">Create account</button>
+            <a class="btn" href="/login">Log In</a>
+          </form> 
 
       </div>
     </div>

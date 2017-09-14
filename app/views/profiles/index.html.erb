@@ -1,4 +1,3 @@
-
 <div align="center">
   <h1><%= current_user.first_name %>'s Profile</h1>
   <hr width="500px" class="style18">
@@ -6,14 +5,13 @@
 
 <div id="app3">
   <div class="row"> 
-
     <div class="col-md-6">
       <div align="center">
       
-      <% if @photos %>
-        <%= image_tag @photos.image.url, :size => "230x250" %>
-      <% else  %>
-        <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
+        <% if @photos %>
+          <%= image_tag @photos.image.url, :size => "230x250" %>
+        <% else  %>
+          <img width="200" height="200" src="http://www.iconsdb.com/icons/preview/white/square-xxl.png">
         <% end %>
 
         <h3> Healthy BMI Range 18.5 - 24.9 </h3>
@@ -41,25 +39,24 @@
           <button class="btn" onclick="location.href='profile/edit'"> Edit Profile </button>
           <button class="btn" onclick="location.href='photos/new'">Update Photo </button>
         </div>
-      
       </div>
     </div>
 
-<% if current_user.profile %>
-  <div class="col-md-6" >
-    <div class="well">
-      <h2 align="center"> Recommendations</h2>
-      <hr>
-      <ul class=recommendations>
-        <li> You need {{AvgCalories}} Calories/day to maintain weight</li>
-        <li> You need {{AvgCalories - 500}} Calories/day to lose 1 lb per week</li>
-        <li> You need {{AvgCalories - 1000}} Calories/day to lose 2 lb per week</li>
-        <li> You need {{AvgCalories + 500}} Calories/day to gain 1 lb per week</li>
-        <li> You need {{AvgCalories + 1000}} Calories/day to gain 2 lb per week</li>
-      </ul>
-    </div>
-  </div>
-<% end %>
+    <% if current_user.profile %>
+      <div class="col-md-6" >
+        <div class="well">
+          <h2 align="center"> Recommendations</h2>
+          <hr>
+          <ul class=recommendations>
+            <li> You need {{AvgCalories}} Calories/day to maintain weight</li>
+            <li> You need {{AvgCalories - 500}} Calories/day to lose 1 lb per week</li>
+            <li> You need {{AvgCalories - 1000}} Calories/day to lose 2 lb per week</li>
+            <li> You need {{AvgCalories + 500}} Calories/day to gain 1 lb per week</li>
+            <li> You need {{AvgCalories + 1000}} Calories/day to gain 2 lb per week</li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 </div>

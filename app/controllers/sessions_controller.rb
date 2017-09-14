@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def new
     redirect_to '/dashboard' if current_user 
   end
@@ -19,4 +20,5 @@ class SessionsController < ApplicationController
     flash[:success] = 'Successfully logged out!'
     redirect_to '/login'
   end
+  
 end

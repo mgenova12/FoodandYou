@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     mounted: function() {
       $('#calendar').fullCalendar({
-        // put your options and callbacks here
         events: '/api/v1/dashboard/meals',
         eventColor: '#094220'
       }); 
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $.get('/api/v1/profiles', function(response) {
         this.AvgCalories = response[0].AvgCalories;
       }.bind(this));
-
 
     }
 
