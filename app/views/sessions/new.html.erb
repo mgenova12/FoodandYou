@@ -1,27 +1,47 @@
-<div class='logo'> 
-  <h2> Food & You</h2>
-</div>
-
-<%= form_tag "/login", method: :post do %>
-    
-    <h1>Log In!</h1>
-    <div class="main" align="center">
-      <div class="container">
-        <div class="row">
-            <form role="form">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email">
-              </div>
-              <div class="form-group">
-                <label for="password" class="password-label">Password</label> 
-                <input type="password" class="form-control" name="password">
-              </div>
-              <button type="submit" class="btn">Log In</button>
-              <a class="btn" href="/signup">Create Account</a>
-            </form>
-        </div>
-      </div>
+<div class='row'>
+  <div class="col-md-6">
+    <div class='logo'> 
+      <h2> Food & You</h2>
+      <h3>Explore how you can track your nutrional intake!</h3>
+      <h4>Now including tools to caluclate your BMI, Calendar to track your meals, and recommended calorie counts.</h4>
     </div>
-    
-<% end %>
+  </div>
+
+
+  <div class="col-md-6">
+
+    <div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab"><a href="/signup">Sign Up</a></li>
+        <li class="tab"><a class='active' href="/login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <%= form_tag "/login", method: :post do %>
+          
+            <div class="field-wrap">
+              <input type="email"required autocomplete="off" placeholder="Email Address" name="email"/>
+            </div>
+            
+            <div class="field-wrap">
+              <input type="password"required autocomplete="off" placeholder="Password" name="password"/>
+            </div>
+            
+            <button type="submit" class="button button-block"/>Log In</button>
+          
+          <% end %>
+
+        </div>
+        
+          <div id="login"></div>
+        
+      </div><!-- tab-content -->
+      
+  </div> <!-- /form -->
+
+  </div>
+</div> <!--row -->
