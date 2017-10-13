@@ -173,13 +173,21 @@ img {
 }
 
 .logo {
-  font-family: cursive;
   font-size: 22px;
-    display: table;
-  margin-right: auto;
-  margin-left: auto;
-  border: 3px solid green;
   text-align: center;
+  padding-top: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  font-size: 45px;
+  line-height: 80px;
+  font-family: cursive;
+}
+
+.logo h4 {
+  line-height: 30px;
 }
 
 .active {
