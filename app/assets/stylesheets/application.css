@@ -30,7 +30,11 @@ body.splash {
 
 body {
   /*background-image: url('/assets/black_thread.png');*/
-  background-image: url("black_thread.png");
+  /*background-image: url("black_thread.png");*/
+  background-image: url('dark-wood-and-vegetables.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*background-color: rgba(19, 35, 47, 0.9);*/
   color:#fff;
 }
 
@@ -171,6 +175,11 @@ img {
 .logo {
   font-family: cursive;
   font-size: 22px;
+    display: table;
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid green;
+  text-align: center;
 }
 
 .active {
